@@ -1,0 +1,8 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:string", "count": 2 }
+  ],
+  "result": { "item": "minecraft:white_wool", "count": 1 }
+}
+

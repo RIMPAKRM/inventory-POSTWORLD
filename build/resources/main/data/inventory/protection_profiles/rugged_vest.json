@@ -1,0 +1,9 @@
+{
+  "items": ["inventory:rugged_vest"],
+  "armorValue": 3.0,
+  "durabilityModifier": 1.0,
+  "weightClass": "light",
+  "tags": ["inventory:armor/light"],
+  "priority": 10
+}
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.inventory.inventory.phaseb.IdempotencyTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-03-21T20:28:34" hostname="DESKTOP-2PJLBQN" time="0.015">
+  <properties/>
+  <testcase name="gcEvictsExpiredEntries()" classname="org.inventory.inventory.phaseb.IdempotencyTest" time="0.006"/>
+  <testcase name="clearPlayerRemovesOnlyThatPlayersEntries()" classname="org.inventory.inventory.phaseb.IdempotencyTest" time="0.0"/>
+  <testcase name="differentRequestIdsAreBothAccepted()" classname="org.inventory.inventory.phaseb.IdempotencyTest" time="0.001"/>
+  <testcase name="massiveRapidRequestsNoDuplicateGrants()" classname="org.inventory.inventory.phaseb.IdempotencyTest" time="0.003"/>
+  <testcase name="secondRequestWithSameIdIsDuplicate()" classname="org.inventory.inventory.phaseb.IdempotencyTest" time="0.0"/>
+  <testcase name="firstRequestIsNotDuplicate()" classname="org.inventory.inventory.phaseb.IdempotencyTest" time="0.0"/>
+  <testcase name="sameRequestIdDifferentPlayersAreNotDuplicates()" classname="org.inventory.inventory.phaseb.IdempotencyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

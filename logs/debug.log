@@ -1,0 +1,245 @@
+[22мар.2026 01:28:35.333] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=17df2d8c-0568-44a2-942f-35152b34ae88
+[22мар.2026 01:28:35.336] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=17df2d8c-0568-44a2-942f-35152b34ae88
+[22мар.2026 01:28:35.337] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=17df2d8c-0568-44a2-942f-35152b34ae88
+[22мар.2026 01:28:35.337] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=17df2d8c-0568-44a2-942f-35152b34ae88
+[22мар.2026 01:28:35.339] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=17df2d8c-0568-44a2-942f-35152b34ae88
+[22мар.2026 01:28:35.342] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.342] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.342] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.343] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.343] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.343] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C FAILED — compensating 2 steps opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.344] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.344] [Test worker/ERROR] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE EXCEPTION opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+java.lang.RuntimeException: simulated compensation failure in B
+	at org.inventory.inventory.phaseb.SagaOrchestratorTest$3.compensate(SagaOrchestratorTest.java:73) ~[test/:?]
+	at org.inventory.inventory.server.saga.SagaOrchestrator.compensateAll(SagaOrchestrator.java:76) ~[main/:?]
+	at org.inventory.inventory.server.saga.SagaOrchestrator.execute(SagaOrchestrator.java:58) ~[main/:?]
+	at org.inventory.inventory.phaseb.SagaOrchestratorTest.lambda$compensateThrows_doesNotAbortRemainingCompensations$1(SagaOrchestratorTest.java:172) ~[test/:?]
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:71) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:62) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3249) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.inventory.inventory.phaseb.SagaOrchestratorTest.compensateThrows_doesNotAbortRemainingCompensations(SagaOrchestratorTest.java:171) ~[test/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36) ~[?:?]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) ~[?:?]
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) ~[?:?]
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94) ~[?:?]
+	at jdk.proxy1.$Proxy2.stop(Unknown Source) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60) ~[?:?]
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56) ~[?:?]
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:119) ~[?:?]
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66) ~[?:?]
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:?]
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:?]
+[22мар.2026 01:28:35.381] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[22мар.2026 01:28:35.385] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=759172bd-2f55-4578-90ad-b443e8a7d1cc
+[22мар.2026 01:28:35.386] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=759172bd-2f55-4578-90ad-b443e8a7d1cc
+[22мар.2026 01:28:35.386] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=759172bd-2f55-4578-90ad-b443e8a7d1cc
+[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.389] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.389] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C FAILED — compensating 2 steps opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.389] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.389] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=f6ba244e-b321-44ab-a592-1805851acce0
+[22мар.2026 01:28:35.391] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=f492b17a-fe37-48a9-b3df-cd67bfe2db43
+[22мар.2026 01:28:35.391] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=f492b17a-fe37-48a9-b3df-cd67bfe2db43
+[22мар.2026 01:28:35.392] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=f492b17a-fe37-48a9-b3df-cd67bfe2db43
+[22мар.2026 01:28:35.393] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=606778e9-82e3-43a5-82cf-2a925333e22e
+[22мар.2026 01:28:35.395] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=9bcbd371-9357-4d5e-8452-6eff35d77b41
+[22мар.2026 01:28:35.395] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A FAILED — compensating 0 steps opId=9bcbd371-9357-4d5e-8452-6eff35d77b41
+[22мар.2026 01:28:35.397] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+[22мар.2026 01:28:35.397] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+[22мар.2026 01:28:35.397] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+[22мар.2026 01:28:35.397] [Test worker/ERROR] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B EXCEPTION opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+java.lang.RuntimeException: simulated exception in step B
+	at org.inventory.inventory.phaseb.SagaOrchestratorTest$2.execute(SagaOrchestratorTest.java:60) ~[test/:?]
+	at org.inventory.inventory.server.saga.SagaOrchestrator.execute(SagaOrchestrator.java:48) ~[main/:?]
+	at org.inventory.inventory.phaseb.SagaOrchestratorTest.lambda$stepThrows_treatedAsFail_previousStepsAreCompensated$0(SagaOrchestratorTest.java:156) ~[test/:?]
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:71) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:62) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3249) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.inventory.inventory.phaseb.SagaOrchestratorTest.stepThrows_treatedAsFail_previousStepsAreCompensated(SagaOrchestratorTest.java:155) ~[test/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36) ~[?:?]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) ~[?:?]
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) ~[?:?]
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94) ~[?:?]
+	at jdk.proxy1.$Proxy2.stop(Unknown Source) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100) ~[?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60) ~[?:?]
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56) ~[?:?]
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:119) ~[?:?]
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66) ~[?:?]
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:?]
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:?]
+[22мар.2026 01:28:35.411] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+[22мар.2026 01:28:35.411] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+[22мар.2026 01:28:35.415] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga1/X START opId=252eca8a-aa2a-4538-b9c3-0a4c703e4299
+[22мар.2026 01:28:35.415] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga1/X FAILED — compensating 0 steps opId=252eca8a-aa2a-4538-b9c3-0a4c703e4299
+[22мар.2026 01:28:35.416] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga2/Y START opId=1b777b53-9f7d-4102-b088-42dacd3b9ee8
+[22мар.2026 01:28:35.416] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga2/Y FAILED — compensating 0 steps opId=1b777b53-9f7d-4102-b088-42dacd3b9ee8
+[22мар.2026 01:28:35.417] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=0668966b-b038-4197-8e23-418fb51fb570
+[22мар.2026 01:28:35.417] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=0668966b-b038-4197-8e23-418fb51fb570
+[22мар.2026 01:28:35.419] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=0668966b-b038-4197-8e23-418fb51fb570
+[22мар.2026 01:28:35.419] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=0668966b-b038-4197-8e23-418fb51fb570
+[22мар.2026 01:28:35.419] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=0668966b-b038-4197-8e23-418fb51fb570
+[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/writer START opId=b3439ea5-8a78-45ac-9970-6b19b673e297
+[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/writer OK opId=b3439ea5-8a78-45ac-9970-6b19b673e297
+[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/reader START opId=b3439ea5-8a78-45ac-9970-6b19b673e297
+[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/reader OK opId=b3439ea5-8a78-45ac-9970-6b19b673e297
+[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test COMPLETE opId=b3439ea5-8a78-45ac-9970-6b19b673e297
+[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=e39bc346-61e3-4802-8e27-2c42d7e818db
+[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=e39bc346-61e3-4802-8e27-2c42d7e818db
+[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=e39bc346-61e3-4802-8e27-2c42d7e818db
+[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=e39bc346-61e3-4802-8e27-2c42d7e818db
+[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=e39bc346-61e3-4802-8e27-2c42d7e818db
+[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C OK opId=e39bc346-61e3-4802-8e27-2c42d7e818db
+[22мар.2026 01:28:35.426] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=e39bc346-61e3-4802-8e27-2c42d7e818db
+[22мар.2026 01:28:35.631] [Test worker/WARN] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader:EMPTY_ARRAY] file=inventory:craft_cards/bad_missing_result.json details=ingredients
+[22мар.2026 01:28:35.634] [Test worker/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=0 storageProfiles=0 protectionItems=0 issues=0

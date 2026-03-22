@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.inventory.inventory.phasec.DataDrivenContentLoaderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-03-21T20:28:35" hostname="DESKTOP-2PJLBQN" time="0.208">
+  <properties/>
+  <testcase name="validCategoryLoadsAndBrokenCardIsSoftDisabled()" classname="org.inventory.inventory.phasec.DataDrivenContentLoaderTest" time="0.208"/>
+  <system-out><![CDATA[[01:28:35] [Test worker/WARN] [or.in.in.da.DataDrivenContentLoader/]: [DataLoader:EMPTY_ARRAY] file=inventory:craft_cards/bad_missing_result.json details=ingredients
+[01:28:35] [Test worker/INFO] [or.in.in.da.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=0 storageProfiles=0 protectionItems=0 issues=0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
