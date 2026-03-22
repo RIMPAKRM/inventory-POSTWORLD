@@ -1,0 +1,10 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:leather", "count": 5 },
+    { "item": "minecraft:iron_nugget", "count": 4 },
+    { "item": "minecraft:string", "count": 2 }
+  ],
+  "result": { "item": "inventory:reinforced_cargo_pants", "count": 1 }
+}
+

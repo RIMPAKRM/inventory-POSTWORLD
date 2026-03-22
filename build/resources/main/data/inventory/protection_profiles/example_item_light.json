@@ -1,0 +1,9 @@
+{
+  "items": ["inventory:example_item"],
+  "armorValue": 2.0,
+  "durabilityModifier": 1.1,
+  "weightClass": "light",
+  "tags": ["inventory:armor/light"],
+  "priority": 20
+}
+

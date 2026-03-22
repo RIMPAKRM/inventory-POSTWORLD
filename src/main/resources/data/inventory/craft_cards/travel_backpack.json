@@ -1,0 +1,10 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:leather", "count": 4 },
+    { "item": "minecraft:chest", "count": 1 },
+    { "item": "minecraft:string", "count": 3 }
+  ],
+  "result": { "item": "inventory:travel_backpack", "count": 1 }
+}
+

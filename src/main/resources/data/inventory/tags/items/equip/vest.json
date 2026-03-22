@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "inventory:rugged_vest",
+    "inventory:tactical_vest",
+    "inventory:tactical_vest_black",
+    "inventory:chest_rig"
+  ]
+}
+

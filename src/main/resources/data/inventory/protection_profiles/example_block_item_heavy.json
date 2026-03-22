@@ -1,0 +1,9 @@
+{
+  "items": ["inventory:example_block"],
+  "armorValue": 4.5,
+  "durabilityModifier": 0.9,
+  "weightClass": "heavy",
+  "tags": ["inventory:armor/heavy"],
+  "priority": 5
+}
+

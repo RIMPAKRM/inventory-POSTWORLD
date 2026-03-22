@@ -1,0 +1,10 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:leather", "count": 7 },
+    { "item": "minecraft:string", "count": 3 },
+    { "item": "minecraft:iron_nugget", "count": 6 }
+  ],
+  "result": { "item": "inventory:patrol_jacket", "count": 1 }
+}
+

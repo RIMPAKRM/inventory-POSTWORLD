@@ -1,0 +1,9 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:leather", "count": 2 },
+    { "item": "minecraft:string", "count": 1 }
+  ],
+  "result": { "item": "inventory:work_gloves", "count": 1 }
+}
+

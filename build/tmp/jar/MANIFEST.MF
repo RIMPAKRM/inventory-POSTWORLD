@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: inventory
+Specification-Vendor: 
+Specification-Version: 1
+Implementation-Title: inventory_project
+Implementation-Version: 1.2.2-SNAPSHOT
+Implementation-Vendor: 
+Implementation-Timestamp: 2026-03-22T01:28:29+0500
+

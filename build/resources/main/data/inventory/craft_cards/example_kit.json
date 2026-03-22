@@ -1,0 +1,9 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:stick", "count": 2 },
+    { "item": "minecraft:iron_ingot", "count": 1 }
+  ],
+  "result": { "item": "inventory:example_item", "count": 1 }
+}
+

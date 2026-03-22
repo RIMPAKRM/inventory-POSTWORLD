@@ -1,0 +1,9 @@
+{
+  "items": ["inventory:patrol_jacket"],
+  "armorValue": 5.0,
+  "durabilityModifier": 1.1,
+  "weightClass": "medium",
+  "tags": ["inventory:armor/medium"],
+  "priority": 10
+}
+

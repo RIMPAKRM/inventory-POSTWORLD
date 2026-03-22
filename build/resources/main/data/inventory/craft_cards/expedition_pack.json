@@ -1,0 +1,11 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:leather", "count": 6 },
+    { "item": "minecraft:chest", "count": 1 },
+    { "item": "minecraft:rabbit_hide", "count": 2 },
+    { "item": "minecraft:string", "count": 4 }
+  ],
+  "result": { "item": "inventory:expedition_pack", "count": 1 }
+}
+

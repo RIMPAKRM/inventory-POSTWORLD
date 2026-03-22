@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-03-21T20:28:34" hostname="DESKTOP-2PJLBQN" time="0.388">
+  <properties/>
+  <testcase name="cancelSync_nonExistentPlayer_noException()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.378"/>
+  <testcase name="scheduleSync_samePlayerTwice_onlyOnePendingEntry()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.001"/>
+  <testcase name="scheduleAfterCancel_reAddsEntry()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.001"/>
+  <testcase name="debounce_firstScheduleTimestampPreserved_secondCallIsNoop()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.0"/>
+  <testcase name="scheduleSync_differentPlayers_eachHasSeparateEntry()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.001"/>
+  <testcase name="cancelSync_onlyAffectsSpecifiedPlayer()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.001"/>
+  <testcase name="scheduleSync_addsPendingEntry()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.0"/>
+  <testcase name="cancelSync_removesEntry()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.001"/>
+  <testcase name="initiallyNoPendingSyncs()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.0"/>
+  <testcase name="clearAllPending_removesEverything()" classname="org.inventory.inventory.phaseb.LoadoutSyncSchedulerTest" time="0.0"/>
+  <system-out><![CDATA[2026-03-22 01:28:35,217 Test worker WARN Advanced terminal features are not available in this environment
+2026-03-22 01:28:35,277 Log4j2-TF-2-RollingFileManager-2 WARN Unable to delete logs\debug-1.log.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

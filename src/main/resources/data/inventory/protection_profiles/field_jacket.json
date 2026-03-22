@@ -1,0 +1,9 @@
+{
+  "items": ["inventory:field_jacket"],
+  "armorValue": 4.0,
+  "durabilityModifier": 1.0,
+  "weightClass": "medium",
+  "tags": ["inventory:armor/medium"],
+  "priority": 10
+}
+

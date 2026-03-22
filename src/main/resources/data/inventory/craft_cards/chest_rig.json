@@ -1,0 +1,10 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:leather", "count": 4 },
+    { "item": "minecraft:iron_ingot", "count": 2 },
+    { "item": "minecraft:string", "count": 2 }
+  ],
+  "result": { "item": "inventory:chest_rig", "count": 1 }
+}
+
