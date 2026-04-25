@@ -246,7 +246,7 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
         if (player.level().isClientSide() || !(player instanceof ServerPlayer serverPlayer)) {
-            return doQuickMoveStack(index);
+            return doQuickMoveStack(index, player);
         }
 
         Optional<OpContext> ctxOpt = InventoryTransactionService.beginLoadoutOp(serverPlayer, loadout.getLoadoutVersion());
@@ -261,7 +261,7 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
         ItemStack moved = ItemStack.EMPTY;
         try {
             ItemStack[] equipBefore = captureEquipmentSnapshot();
-            moved = doQuickMoveStack(index);
+            moved = doQuickMoveStack(index, serverPlayer);
             if (moved.isEmpty()) {
                 return ItemStack.EMPTY;
             }
@@ -274,42 +274,119 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
 
         if (success && equipmentChanged) {
             org.inventory.inventory.server.ArmorAttributeService.applyLoadoutArmor(serverPlayer, loadout);
+        }
+        if (success) {
             LoadoutSyncScheduler.sendImmediately(serverPlayer);
         }
         return moved;
     }
 
-    private ItemStack doQuickMoveStack(int index) {
-        ItemStack result = ItemStack.EMPTY;
+    private ItemStack doQuickMoveStack(int index, Player clickingPlayer) {
         Slot slot = slots.get(index);
 
-        if (!slot.hasItem()) return result;
+        if (!slot.hasItem()) return ItemStack.EMPTY;
 
         ItemStack stackInSlot = slot.getItem();
-        result = stackInSlot.copy();
+        ItemStack original = stackInSlot.copy();
 
         int customEnd = EquipmentSlotType.COUNT + dynamicSlotCountSnapshot;
         int vanillaEnd = slots.size();
 
         if (index < customEnd) {
             // Custom -> hotbar
-            if (!moveItemStackTo(stackInSlot, customEnd, vanillaEnd, true)) {
-                return ItemStack.EMPTY;
-            }
+            transferStackToRange(stackInSlot, customEnd, vanillaEnd, true);
         } else {
             // Hotbar -> try equipment first, then dynamic storage
-            if (!moveItemStackTo(stackInSlot, 0, customEnd, false)) {
-                return ItemStack.EMPTY;
+            transferStackToRange(stackInSlot, 0, customEnd, false);
+        }
+
+        if (ItemStack.matches(stackInSlot, original) && stackInSlot.getCount() == original.getCount()) {
+            return ItemStack.EMPTY;
+        }
+
+        slot.set(stackInSlot.isEmpty() ? ItemStack.EMPTY : stackInSlot);
+        slot.setChanged();
+        slot.onTake(clickingPlayer, stackInSlot);
+        return original;
+    }
+
+    private boolean transferStackToRange(ItemStack movingStack, int startIndex, int endIndex, boolean reverse) {
+        if (movingStack.isEmpty()) {
+            return false;
+        }
+
+        boolean changed = false;
+
+        if (reverse) {
+            for (int i = endIndex - 1; i >= startIndex && !movingStack.isEmpty(); i--) {
+                changed |= mergeIntoSlot(movingStack, slots.get(i));
+            }
+            for (int i = endIndex - 1; i >= startIndex && !movingStack.isEmpty(); i--) {
+                changed |= placeIntoEmptySlot(movingStack, slots.get(i));
+            }
+        } else {
+            for (int i = startIndex; i < endIndex && !movingStack.isEmpty(); i++) {
+                changed |= mergeIntoSlot(movingStack, slots.get(i));
+            }
+            for (int i = startIndex; i < endIndex && !movingStack.isEmpty(); i++) {
+                changed |= placeIntoEmptySlot(movingStack, slots.get(i));
             }
         }
 
-        if (stackInSlot.isEmpty()) {
-            slot.set(ItemStack.EMPTY);
-        } else {
-            slot.setChanged();
+        return changed;
+    }
+
+    private boolean mergeIntoSlot(ItemStack movingStack, Slot targetSlot) {
+        if (movingStack.isEmpty()) {
+            return false;
+        }
+        if (!targetSlot.hasItem() || !targetSlot.mayPlace(movingStack)) {
+            return false;
         }
 
-        return result;
+        ItemStack targetStack = targetSlot.getItem();
+        if (targetStack.isEmpty() || !ItemStack.isSameItemSameTags(targetStack, movingStack)) {
+            return false;
+        }
+
+        int slotLimit = Math.min(targetSlot.getMaxStackSize(targetStack), movingStack.getMaxStackSize());
+        int space = slotLimit - targetStack.getCount();
+        if (space <= 0) {
+            return false;
+        }
+
+        int moved = Math.min(space, movingStack.getCount());
+        if (moved <= 0) {
+            return false;
+        }
+
+        targetStack.grow(moved);
+        targetSlot.set(targetStack);
+        targetSlot.setChanged();
+        movingStack.shrink(moved);
+        return true;
+    }
+
+    private boolean placeIntoEmptySlot(ItemStack movingStack, Slot targetSlot) {
+        if (movingStack.isEmpty()) {
+            return false;
+        }
+        if (targetSlot.hasItem() || !targetSlot.mayPlace(movingStack)) {
+            return false;
+        }
+
+        int slotLimit = Math.min(targetSlot.getMaxStackSize(movingStack), movingStack.getMaxStackSize());
+        if (slotLimit <= 0) {
+            return false;
+        }
+
+        int moved = Math.min(slotLimit, movingStack.getCount());
+        ItemStack placed = movingStack.copy();
+        placed.setCount(moved);
+        targetSlot.set(placed);
+        targetSlot.setChanged();
+        movingStack.shrink(moved);
+        return moved > 0;
     }
 
     private boolean isCustomMenuSlot(int slotId) {
@@ -523,6 +600,16 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
         @Override
         public boolean mayPlace(ItemStack stack) {
             return isActive();
+        }
+
+        @Override
+        public int getMaxStackSize() {
+            return 64;
+        }
+
+        @Override
+        public int getMaxStackSize(ItemStack stack) {
+            return stack.isEmpty() ? 64 : stack.getMaxStackSize();
         }
 
         public int getLocalIndex() { return localIndex; }

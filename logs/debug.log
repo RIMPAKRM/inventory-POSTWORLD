@@ -1,16 +1,16 @@
-[22мар.2026 01:28:35.333] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=17df2d8c-0568-44a2-942f-35152b34ae88
-[22мар.2026 01:28:35.336] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=17df2d8c-0568-44a2-942f-35152b34ae88
-[22мар.2026 01:28:35.337] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=17df2d8c-0568-44a2-942f-35152b34ae88
-[22мар.2026 01:28:35.337] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=17df2d8c-0568-44a2-942f-35152b34ae88
-[22мар.2026 01:28:35.339] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=17df2d8c-0568-44a2-942f-35152b34ae88
-[22мар.2026 01:28:35.342] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.342] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.342] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.343] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.343] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.343] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C FAILED — compensating 2 steps opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.344] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.344] [Test worker/ERROR] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE EXCEPTION opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+[25апр.2026 15:41:38.946] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=f5d96a5a-2a0a-4ce8-a75c-4d79976fab8f
+[25апр.2026 15:41:38.948] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=f5d96a5a-2a0a-4ce8-a75c-4d79976fab8f
+[25апр.2026 15:41:38.948] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=f5d96a5a-2a0a-4ce8-a75c-4d79976fab8f
+[25апр.2026 15:41:38.948] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=f5d96a5a-2a0a-4ce8-a75c-4d79976fab8f
+[25апр.2026 15:41:38.950] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=f5d96a5a-2a0a-4ce8-a75c-4d79976fab8f
+[25апр.2026 15:41:38.952] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.952] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.952] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.952] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.953] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.953] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C FAILED — compensating 2 steps opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.953] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.953] [Test worker/ERROR] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE EXCEPTION opId=79536253-2c9c-4924-993f-8c0bb230bffa
 java.lang.RuntimeException: simulated compensation failure in B
 	at org.inventory.inventory.phaseb.SagaOrchestratorTest$3.compensate(SagaOrchestratorTest.java:73) ~[test/:?]
 	at org.inventory.inventory.server.saga.SagaOrchestrator.compensateAll(SagaOrchestrator.java:76) ~[main/:?]
@@ -104,28 +104,28 @@ java.lang.RuntimeException: simulated compensation failure in B
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66) ~[?:?]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:?]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:?]
-[22мар.2026 01:28:35.381] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-[22мар.2026 01:28:35.385] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=759172bd-2f55-4578-90ad-b443e8a7d1cc
-[22мар.2026 01:28:35.386] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=759172bd-2f55-4578-90ad-b443e8a7d1cc
-[22мар.2026 01:28:35.386] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=759172bd-2f55-4578-90ad-b443e8a7d1cc
-[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.387] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.389] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.389] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C FAILED — compensating 2 steps opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.389] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.389] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=f6ba244e-b321-44ab-a592-1805851acce0
-[22мар.2026 01:28:35.391] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=f492b17a-fe37-48a9-b3df-cd67bfe2db43
-[22мар.2026 01:28:35.391] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=f492b17a-fe37-48a9-b3df-cd67bfe2db43
-[22мар.2026 01:28:35.392] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=f492b17a-fe37-48a9-b3df-cd67bfe2db43
-[22мар.2026 01:28:35.393] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=606778e9-82e3-43a5-82cf-2a925333e22e
-[22мар.2026 01:28:35.395] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=9bcbd371-9357-4d5e-8452-6eff35d77b41
-[22мар.2026 01:28:35.395] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A FAILED — compensating 0 steps opId=9bcbd371-9357-4d5e-8452-6eff35d77b41
-[22мар.2026 01:28:35.397] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=a4601c8f-6d69-4b92-b73c-37855d775caf
-[22мар.2026 01:28:35.397] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=a4601c8f-6d69-4b92-b73c-37855d775caf
-[22мар.2026 01:28:35.397] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=a4601c8f-6d69-4b92-b73c-37855d775caf
-[22мар.2026 01:28:35.397] [Test worker/ERROR] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B EXCEPTION opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+[25апр.2026 15:41:38.971] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=79536253-2c9c-4924-993f-8c0bb230bffa
+[25апр.2026 15:41:38.974] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=9de28dfc-1a27-4641-8bc4-be8b0b6a45c2
+[25апр.2026 15:41:38.974] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=9de28dfc-1a27-4641-8bc4-be8b0b6a45c2
+[25апр.2026 15:41:38.974] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=9de28dfc-1a27-4641-8bc4-be8b0b6a45c2
+[25апр.2026 15:41:38.974] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.974] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.975] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.975] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.975] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.975] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C FAILED — compensating 2 steps opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.975] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B COMPENSATE opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.975] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+[25апр.2026 15:41:38.976] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=98558687-a1cc-4850-9f86-84218742d110
+[25апр.2026 15:41:38.977] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=98558687-a1cc-4850-9f86-84218742d110
+[25апр.2026 15:41:38.977] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=98558687-a1cc-4850-9f86-84218742d110
+[25апр.2026 15:41:38.977] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=a03a88a3-758e-4cc0-8572-82ba2f4913e5
+[25апр.2026 15:41:38.978] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=5577e08d-592e-41cf-8dd7-ccc04e03416e
+[25апр.2026 15:41:38.978] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A FAILED — compensating 0 steps opId=5577e08d-592e-41cf-8dd7-ccc04e03416e
+[25апр.2026 15:41:38.980] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
+[25апр.2026 15:41:38.980] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
+[25апр.2026 15:41:38.980] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
+[25апр.2026 15:41:38.980] [Test worker/ERROR] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B EXCEPTION opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
 java.lang.RuntimeException: simulated exception in step B
 	at org.inventory.inventory.phaseb.SagaOrchestratorTest$2.execute(SagaOrchestratorTest.java:60) ~[test/:?]
 	at org.inventory.inventory.server.saga.SagaOrchestrator.execute(SagaOrchestrator.java:48) ~[main/:?]
@@ -218,28 +218,28 @@ java.lang.RuntimeException: simulated exception in step B
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66) ~[?:?]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:?]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:?]
-[22мар.2026 01:28:35.411] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=a4601c8f-6d69-4b92-b73c-37855d775caf
-[22мар.2026 01:28:35.411] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=a4601c8f-6d69-4b92-b73c-37855d775caf
-[22мар.2026 01:28:35.415] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga1/X START opId=252eca8a-aa2a-4538-b9c3-0a4c703e4299
-[22мар.2026 01:28:35.415] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga1/X FAILED — compensating 0 steps opId=252eca8a-aa2a-4538-b9c3-0a4c703e4299
-[22мар.2026 01:28:35.416] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga2/Y START opId=1b777b53-9f7d-4102-b088-42dacd3b9ee8
-[22мар.2026 01:28:35.416] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga2/Y FAILED — compensating 0 steps opId=1b777b53-9f7d-4102-b088-42dacd3b9ee8
-[22мар.2026 01:28:35.417] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=0668966b-b038-4197-8e23-418fb51fb570
-[22мар.2026 01:28:35.417] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=0668966b-b038-4197-8e23-418fb51fb570
-[22мар.2026 01:28:35.419] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=0668966b-b038-4197-8e23-418fb51fb570
-[22мар.2026 01:28:35.419] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=0668966b-b038-4197-8e23-418fb51fb570
-[22мар.2026 01:28:35.419] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=0668966b-b038-4197-8e23-418fb51fb570
-[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/writer START opId=b3439ea5-8a78-45ac-9970-6b19b673e297
-[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/writer OK opId=b3439ea5-8a78-45ac-9970-6b19b673e297
-[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/reader START opId=b3439ea5-8a78-45ac-9970-6b19b673e297
-[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/reader OK opId=b3439ea5-8a78-45ac-9970-6b19b673e297
-[22мар.2026 01:28:35.422] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test COMPLETE opId=b3439ea5-8a78-45ac-9970-6b19b673e297
-[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=e39bc346-61e3-4802-8e27-2c42d7e818db
-[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=e39bc346-61e3-4802-8e27-2c42d7e818db
-[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=e39bc346-61e3-4802-8e27-2c42d7e818db
-[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=e39bc346-61e3-4802-8e27-2c42d7e818db
-[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=e39bc346-61e3-4802-8e27-2c42d7e818db
-[22мар.2026 01:28:35.425] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C OK opId=e39bc346-61e3-4802-8e27-2c42d7e818db
-[22мар.2026 01:28:35.426] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=e39bc346-61e3-4802-8e27-2c42d7e818db
-[22мар.2026 01:28:35.631] [Test worker/WARN] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader:EMPTY_ARRAY] file=inventory:craft_cards/bad_missing_result.json details=ingredients
-[22мар.2026 01:28:35.634] [Test worker/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=0 storageProfiles=0 protectionItems=0 issues=0
+[25апр.2026 15:41:38.989] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
+[25апр.2026 15:41:38.989] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
+[25апр.2026 15:41:38.991] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga1/X START opId=9f9ed67d-48e1-455d-b366-4dd3e94b0f5f
+[25апр.2026 15:41:38.991] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga1/X FAILED — compensating 0 steps opId=9f9ed67d-48e1-455d-b366-4dd3e94b0f5f
+[25апр.2026 15:41:38.992] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga2/Y START opId=8d8a9882-6a10-47a5-a021-b28ebba31edd
+[25апр.2026 15:41:38.992] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] saga2/Y FAILED — compensating 0 steps opId=8d8a9882-6a10-47a5-a021-b28ebba31edd
+[25апр.2026 15:41:38.993] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=b40f8c68-d484-430b-8135-090492997cbb
+[25апр.2026 15:41:38.993] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=b40f8c68-d484-430b-8135-090492997cbb
+[25апр.2026 15:41:38.993] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=b40f8c68-d484-430b-8135-090492997cbb
+[25апр.2026 15:41:38.993] [Test worker/WARN] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B FAILED — compensating 1 steps opId=b40f8c68-d484-430b-8135-090492997cbb
+[25апр.2026 15:41:38.993] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A COMPENSATE opId=b40f8c68-d484-430b-8135-090492997cbb
+[25апр.2026 15:41:38.994] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/writer START opId=ce4180c7-fd42-4117-b198-182aa921e321
+[25апр.2026 15:41:38.994] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/writer OK opId=ce4180c7-fd42-4117-b198-182aa921e321
+[25апр.2026 15:41:38.994] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/reader START opId=ce4180c7-fd42-4117-b198-182aa921e321
+[25апр.2026 15:41:38.994] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test/reader OK opId=ce4180c7-fd42-4117-b198-182aa921e321
+[25апр.2026 15:41:38.994] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] context-test COMPLETE opId=ce4180c7-fd42-4117-b198-182aa921e321
+[25апр.2026 15:41:38.996] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A START opId=0972a1ee-6f35-4609-992c-251c69d714d5
+[25апр.2026 15:41:38.996] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/A OK opId=0972a1ee-6f35-4609-992c-251c69d714d5
+[25апр.2026 15:41:38.996] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B START opId=0972a1ee-6f35-4609-992c-251c69d714d5
+[25апр.2026 15:41:38.996] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/B OK opId=0972a1ee-6f35-4609-992c-251c69d714d5
+[25апр.2026 15:41:38.996] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C START opId=0972a1ee-6f35-4609-992c-251c69d714d5
+[25апр.2026 15:41:38.996] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test/C OK opId=0972a1ee-6f35-4609-992c-251c69d714d5
+[25апр.2026 15:41:38.996] [Test worker/DEBUG] [org.inventory.inventory.server.saga.SagaOrchestrator/]: [Saga] test COMPLETE opId=0972a1ee-6f35-4609-992c-251c69d714d5
+[25апр.2026 15:41:39.117] [Test worker/WARN] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader:EMPTY_ARRAY] file=inventory:craft_cards/bad_missing_result.json details=ingredients
+[25апр.2026 15:41:39.119] [Test worker/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=0 storageProfiles=0 protectionItems=0 issues=0

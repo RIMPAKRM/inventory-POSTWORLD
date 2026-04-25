@@ -29,6 +29,10 @@ import java.util.Optional;
  */
 public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
 
+    private static final double RENDER_VERTICAL_OFFSET = -3D / 16.0D;
+    private static final double RENDER_FORWARD_OFFSET = 1.5D / 16.0D;
+    private static final float RENDER_CROUCH_ROTATION_X = -0.5F;
+
     private static final ResourceLocation VANILLA_LAYER_1 =
             ResourceLocation.withDefaultNamespace("textures/models/armor/leather_layer_1.png");
     private static final ResourceLocation VANILLA_LAYER_2 =
@@ -217,6 +221,10 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
         this.tacticalVestModel.Waist.copyFrom(this.getParentModel().body);
         this.tacticalVestModel.Body.copyFrom(this.getParentModel().body);
 
+        poseStack.pushPose();
+        applyCrouchOffset(poseStack, player, RENDER_VERTICAL_OFFSET, RENDER_FORWARD_OFFSET);
+        applyCrouchRotation(poseStack, player, RENDER_CROUCH_ROTATION_X);
+
         VertexConsumer vc = buffer.getBuffer(RenderType.entityCutoutNoCull(texture));
         this.tacticalVestModel.renderToBuffer(
                 poseStack,
@@ -225,6 +233,7 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
                 LivingEntityRenderer.getOverlayCoords(player, 0.0F),
                 1.0F, 1.0F, 1.0F, 1.0F
         );
+        poseStack.popPose();
     }
 
     private void renderCap(PoseStack poseStack,
@@ -236,10 +245,10 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
         this.capModel.Head.copyFrom(this.getParentModel().head);
 
         poseStack.pushPose();
-        // Поставлено 0, чтобы не было NaN/Infinity. Если нужно смещение, выставьте в пикселях в дробных долях блока.
-        poseStack.translate(0.0D, 0.0D, 0.0D);
+        applyCrouchOffset(poseStack, player, RENDER_VERTICAL_OFFSET, RENDER_FORWARD_OFFSET);
+        applyCrouchRotation(poseStack, player, RENDER_CROUCH_ROTATION_X);
 
-        VertexConsumer vc = buffer.getBuffer(RenderType.entityCutoutNoCull(new ResourceLocation(Inventory.MODID, "textures/entities/cap.png")));
+        VertexConsumer vc = buffer.getBuffer(RenderType.entityCutoutNoCull(ResourceLocation.fromNamespaceAndPath(Inventory.MODID, "textures/entities/cap.png")));
         this.capModel.renderToBuffer(
                 poseStack,
                 vc,
@@ -248,6 +257,21 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
                 1.0F, 1.0F, 1.0F, 1.0F
         );
         poseStack.popPose();
+    }
+
+    private void applyCrouchOffset(PoseStack poseStack,
+                                   AbstractClientPlayer player,
+                                   double verticalOffset,
+                                   double forwardOffset) {
+        if (player.isCrouching()) {
+            poseStack.translate(0.0D, verticalOffset, forwardOffset);
+        }
+    }
+
+    private void applyCrouchRotation(PoseStack poseStack, AbstractClientPlayer player, float rotationX) {
+        if (player.isCrouching()) {
+            poseStack.mulPose(com.mojang.math.Axis.XP.rotation(rotationX));
+        }
     }
 
     private Optional<ResourceLocation> resolveTexture(ItemStack stack, EquipmentSlotType slotType) {

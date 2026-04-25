@@ -1,8 +1,7 @@
-k2026-03-22 01:28:35,217 Test worker WARN Advanced terminal features are not available in this environment
-b2026-03-22 01:28:35,277 Log4j2-TF-2-RollingFileManager-2 WARN Unable to delete logs\debug-1.log.
-õ[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B FAILED ‚Äî compensating 1 steps opId=17df2d8c-0568-44a2-942f-35152b34ae88
-õ[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/C FAILED ‚Äî compensating 2 steps opId=96a9a826-276a-4168-9fd0-b608ae693ec7
-ë[01:28:35] [Test worker/ERROR] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B COMPENSATE EXCEPTION opId=96a9a826-276a-4168-9fd0-b608ae693ec7
+k2026-04-25 15:41:38,837 Test worker WARN Advanced terminal features are not available in this environment
+õ[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B FAILED ‚Äî compensating 1 steps opId=f5d96a5a-2a0a-4ce8-a75c-4d79976fab8f
+õ[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/C FAILED ‚Äî compensating 2 steps opId=79536253-2c9c-4924-993f-8c0bb230bffa
+ë[15:41:38] [Test worker/ERROR] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B COMPENSATE EXCEPTION opId=79536253-2c9c-4924-993f-8c0bb230bffa
 Ajava.lang.RuntimeException: simulated compensation failure in B
 r	at org.inventory.inventory.phaseb.SagaOrchestratorTest$3.compensate(SagaOrchestratorTest.java:73) ~[test/:?] {}
 p	at org.inventory.inventory.server.saga.SagaOrchestrator.compensateAll(SagaOrchestrator.java:76) ~[main/:?] {}
@@ -96,9 +95,9 @@
 å	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66) ~[?:?] {}
 x	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:?] {}
 y	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:?] {}
-õ[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/C FAILED ‚Äî compensating 2 steps opId=f6ba244e-b321-44ab-a592-1805851acce0
-õ[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/A FAILED ‚Äî compensating 0 steps opId=9bcbd371-9357-4d5e-8452-6eff35d77b41
- Ü[01:28:35] [Test worker/ERROR] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B EXCEPTION opId=a4601c8f-6d69-4b92-b73c-37855d775caf
+õ[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/C FAILED ‚Äî compensating 2 steps opId=02679a8c-4ce1-45ed-a019-b81b1098fb99
+õ[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/A FAILED ‚Äî compensating 0 steps opId=5577e08d-592e-41cf-8dd7-ccc04e03416e
+ Ü[15:41:38] [Test worker/ERROR] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B EXCEPTION opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
  ;java.lang.RuntimeException: simulated exception in step B
  o	at org.inventory.inventory.phaseb.SagaOrchestratorTest$2.execute(SagaOrchestratorTest.java:60) ~[test/:?] {}
  j	at org.inventory.inventory.server.saga.SagaOrchestrator.execute(SagaOrchestrator.java:48) ~[main/:?] {}
@@ -191,9 +190,9 @@
  å	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66) ~[?:?] {}
  x	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:?] {}
  y	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:?] {}
- õ[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B FAILED ‚Äî compensating 1 steps opId=a4601c8f-6d69-4b92-b73c-37855d775caf
-!ú[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] saga1/X FAILED ‚Äî compensating 0 steps opId=252eca8a-aa2a-4538-b9c3-0a4c703e4299
-!ú[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] saga2/Y FAILED ‚Äî compensating 0 steps opId=1b777b53-9f7d-4102-b088-42dacd3b9ee8
-"õ[01:28:35] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B FAILED ‚Äî compensating 1 steps opId=0668966b-b038-4197-8e23-418fb51fb570
-&%ß[01:28:35] [Test worker/WARN] [or.in.in.da.DataDrivenContentLoader/]: [DataLoader:EMPTY_ARRAY] file=inventory:craft_cards/bad_missing_result.json details=ingredients
-&%ù[01:28:35] [Test worker/INFO] [or.in.in.da.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=0 storageProfiles=0 protectionItems=0 issues=0
+ õ[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B FAILED ‚Äî compensating 1 steps opId=70c1e63a-ac55-4c2f-8fe0-2ef7bc7bddf2
+!ú[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] saga1/X FAILED ‚Äî compensating 0 steps opId=9f9ed67d-48e1-455d-b366-4dd3e94b0f5f
+!ú[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] saga2/Y FAILED ‚Äî compensating 0 steps opId=8d8a9882-6a10-47a5-a021-b28ebba31edd
+"õ[15:41:38] [Test worker/WARN] [or.in.in.se.sa.SagaOrchestrator/]: [Saga] test/B FAILED ‚Äî compensating 1 steps opId=b40f8c68-d484-430b-8135-090492997cbb
+&%ß[15:41:39] [Test worker/WARN] [or.in.in.da.DataDrivenContentLoader/]: [DataLoader:EMPTY_ARRAY] file=inventory:craft_cards/bad_missing_result.json details=ingredients
+&%ù[15:41:39] [Test worker/INFO] [or.in.in.da.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=0 storageProfiles=0 protectionItems=0 issues=0

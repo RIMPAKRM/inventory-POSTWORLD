@@ -171,6 +171,10 @@ public class Inventory {
             // Some client setup code
             LOGGER.info("[Inventory] client setup, player={}", Minecraft.getInstance().getUser().getName());
 
+            // Load data-driven craft content on the client too so the craft menu is populated
+            // even when the server runs in a separate process.
+            DataDrivenContentLoader.reloadAll(Minecraft.getInstance().getResourceManager());
+
             // Phase B: register custom inventory screen for CustomInventoryMenu
             event.enqueueWork(() ->
                 net.minecraft.client.gui.screens.MenuScreens.register(
