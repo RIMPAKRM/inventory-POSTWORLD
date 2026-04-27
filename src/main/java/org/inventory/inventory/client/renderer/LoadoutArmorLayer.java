@@ -11,10 +11,20 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import org.inventory.inventory.client.renderer.backpack.BackpackModel;
+import org.inventory.inventory.client.renderer.backpack.black_shoulder_bag;
+import org.inventory.inventory.client.renderer.head.Helmet6b47DesertEmrModel;
 import org.inventory.inventory.client.renderer.head.CapModel;
+import org.inventory.inventory.client.renderer.face.M40GasmaskModel;
+import org.inventory.inventory.client.renderer.head.UsaHazmatCapModel;
+import org.inventory.inventory.client.renderer.vest.DdrBeltModel;
+import org.inventory.inventory.client.renderer.vest.Vest6b2TanModel;
+import org.inventory.inventory.client.renderer.vest.Vest6sh117DesertModel;
+import org.inventory.inventory.client.renderer.vest.VestLifchikModel;
+import org.inventory.inventory.client.renderer.vest.VestPlateCarrierDesertModel;
 import org.inventory.inventory.client.renderer.vest.TacticalVestModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import org.inventory.inventory.client.renderer.head.TacticalHelmetDesertModel;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.inventory.inventory.Inventory;
@@ -29,10 +39,6 @@ import java.util.Optional;
  */
 public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
 
-    private static final double RENDER_VERTICAL_OFFSET = -3D / 16.0D;
-    private static final double RENDER_FORWARD_OFFSET = 1.5D / 16.0D;
-    private static final float RENDER_CROUCH_ROTATION_X = -0.5F;
-
     private static final ResourceLocation VANILLA_LAYER_1 =
             ResourceLocation.withDefaultNamespace("textures/models/armor/leather_layer_1.png");
     private static final ResourceLocation VANILLA_LAYER_2 =
@@ -43,14 +49,34 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
             ResourceLocation.withDefaultNamespace("textures/models/armor/iron_layer_2.png");
 
     private final BackpackModel<AbstractClientPlayer> backpackModel;
+    private final black_shoulder_bag<AbstractClientPlayer> blackShoulderBagModel;
     private final CapModel<AbstractClientPlayer> capModel;
+    private final Helmet6b47DesertEmrModel<AbstractClientPlayer> helmet6b47DesertEmrModel;
+    private final M40GasmaskModel<AbstractClientPlayer> m40GasmaskModel;
+    private final UsaHazmatCapModel<AbstractClientPlayer> usaHazmatCapModel;
+    private final DdrBeltModel<AbstractClientPlayer> ddrBeltModel;
+    private final VestLifchikModel<AbstractClientPlayer> vestLifchikModel;
+    private final Vest6sh117DesertModel<AbstractClientPlayer> vest6sh117DesertModel;
+    private final Vest6b2TanModel<AbstractClientPlayer> vest6b2TanModel;
+    private final VestPlateCarrierDesertModel<AbstractClientPlayer> vestPlateCarrierDesertModel;
     private final TacticalVestModel<AbstractClientPlayer> tacticalVestModel;
+    private final TacticalHelmetDesertModel<AbstractClientPlayer> tacticalHelmetDesertModel;
 
     public LoadoutArmorLayer(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> parent) {
         super(parent);
         this.backpackModel = new BackpackModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(BackpackModel.LAYER_LOCATION));
+        this.blackShoulderBagModel = new black_shoulder_bag<>(Minecraft.getInstance().getEntityModels().bakeLayer(black_shoulder_bag.LAYER_LOCATION));
         this.capModel = new CapModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(CapModel.LAYER_LOCATION));
+        this.helmet6b47DesertEmrModel = new Helmet6b47DesertEmrModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(Helmet6b47DesertEmrModel.LAYER_LOCATION));
+        this.m40GasmaskModel = new M40GasmaskModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(M40GasmaskModel.LAYER_LOCATION));
+        this.usaHazmatCapModel = new UsaHazmatCapModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(UsaHazmatCapModel.LAYER_LOCATION));
+        this.ddrBeltModel = new DdrBeltModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(DdrBeltModel.LAYER_LOCATION));
+        this.vestLifchikModel = new VestLifchikModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(VestLifchikModel.LAYER_LOCATION));
+        this.vest6sh117DesertModel = new Vest6sh117DesertModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(Vest6sh117DesertModel.LAYER_LOCATION));
+        this.vest6b2TanModel = new Vest6b2TanModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(Vest6b2TanModel.LAYER_LOCATION));
+        this.vestPlateCarrierDesertModel = new VestPlateCarrierDesertModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(VestPlateCarrierDesertModel.LAYER_LOCATION));
         this.tacticalVestModel = new TacticalVestModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(TacticalVestModel.LAYER_LOCATION));
+        this.tacticalHelmetDesertModel = new TacticalHelmetDesertModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(TacticalHelmetDesertModel.LAYER_LOCATION));
     }
 
     @Override
@@ -101,21 +127,146 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
             return;
         }
 
-        // Head cap is rendered as a dedicated 3D model layer (custom blockbench model)
-        if (slotType == EquipmentSlotType.HEAD && "cap".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
-            renderCap(poseStack, buffer, packedLight, player);
+        // Head cap variants are rendered as a dedicated 3D model layer (custom blockbench model)
+        String itemPath = ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath();
+        if (slotType == EquipmentSlotType.HEAD && ("cap".equals(itemPath) || "cap_blue".equals(itemPath) || "cap_black".equals(itemPath) || "cap_white".equals(itemPath))) {
+            this.capModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    player,
+                    this.getParentModel().body,
+                    this.getParentModel().head,
+                texture
+            );
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.HEAD && "helmet_6b47_desert_emr".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.helmet6b47DesertEmrModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    player,
+                    this.getParentModel().body,
+                    this.getParentModel().head,
+                    texture
+            );
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.FACE && "m40_gasmask".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.m40GasmaskModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    player,
+                    this.getParentModel().body,
+                    this.getParentModel().head,
+                    texture
+            );
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.HEAD && "usa_hazmat_cap".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.usaHazmatCapModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    player,
+                    this.getParentModel().body,
+                    this.getParentModel().head,
+                    texture
+            );
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.VEST && "ddr_belt".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.ddrBeltModel.renderOnPlayer(poseStack, buffer, packedLight, player, this.getParentModel().body, texture);
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.VEST && "vest_lifchik".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.vestLifchikModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    player,
+                    this.getParentModel().body,
+                    this.getParentModel().rightArm,
+                    this.getParentModel().leftArm,
+                    texture
+            );
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.VEST && "vest_6sh117_desert".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.vest6sh117DesertModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    player,
+                    this.getParentModel().body,
+                    this.getParentModel().rightArm,
+                    this.getParentModel().leftArm,
+                    texture
+            );
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.VEST && "vest_6b2_tan".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.vest6b2TanModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    player,
+                    this.getParentModel().body,
+                    this.getParentModel().rightArm,
+                    this.getParentModel().leftArm,
+                    texture
+            );
+            return;
+        }
+
+        if (slotType == EquipmentSlotType.VEST && "vest_plate_carrier_desert".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.vestPlateCarrierDesertModel.renderOnPlayer(poseStack, buffer, packedLight, player, this.getParentModel().body, texture);
+            return;
+        }
+
+        // Desert tactical helmet is rendered as a dedicated 3D model layer.
+        if (slotType == EquipmentSlotType.HEAD && "tactical_helmet_desert".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+            this.tacticalHelmetDesertModel.renderOnPlayer(
+                    poseStack,
+                    buffer,
+                    packedLight,
+                    this.getParentModel().body,
+                    this.getParentModel().head,
+                    texture,
+                    player
+            );
             return;
         }
 
         // Tactical vests are rendered as a dedicated model layer.
         if (slotType == EquipmentSlotType.VEST && ("tactical_vest".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath()) || "tactical_vest_black".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath()))) {
-            renderTacticalVest(poseStack, buffer, packedLight, player, texture);
+            this.tacticalVestModel.renderOnPlayer(poseStack, buffer, packedLight, player, this.getParentModel().body, texture);
             return;
         }
 
         // Backpack is rendered as a dedicated 3D model layer (like modern warfare mods do)
         if (slotType == EquipmentSlotType.BACKPACK) {
-            renderBackpack(poseStack, buffer, packedLight, player, texture);
+            if ("black_shoulder_bag".equals(ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath())) {
+                this.blackShoulderBagModel.renderOnPlayer(
+                        poseStack,
+                        buffer,
+                        packedLight,
+                        player,
+                        this.getParentModel().body,
+                        texture
+                );
+            } else {
+                renderBackpack(poseStack, buffer, packedLight, player, texture);
+            }
             return;
         }
 
@@ -213,67 +364,6 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
         poseStack.popPose();
     }
 
-    private void renderTacticalVest(PoseStack poseStack,
-                                    MultiBufferSource buffer,
-                                    int packedLight,
-                                    AbstractClientPlayer player,
-                                    ResourceLocation texture) {
-        this.tacticalVestModel.Waist.copyFrom(this.getParentModel().body);
-        this.tacticalVestModel.Body.copyFrom(this.getParentModel().body);
-
-        poseStack.pushPose();
-        applyCrouchOffset(poseStack, player, RENDER_VERTICAL_OFFSET, RENDER_FORWARD_OFFSET);
-        applyCrouchRotation(poseStack, player, RENDER_CROUCH_ROTATION_X);
-
-        VertexConsumer vc = buffer.getBuffer(RenderType.entityCutoutNoCull(texture));
-        this.tacticalVestModel.renderToBuffer(
-                poseStack,
-                vc,
-                packedLight,
-                LivingEntityRenderer.getOverlayCoords(player, 0.0F),
-                1.0F, 1.0F, 1.0F, 1.0F
-        );
-        poseStack.popPose();
-    }
-
-    private void renderCap(PoseStack poseStack,
-                           MultiBufferSource buffer,
-                           int packedLight,
-                           AbstractClientPlayer player) {
-        // Follow head rotation and position, then apply the offset from the model.
-        this.capModel.Waist.copyFrom(this.getParentModel().body);
-        this.capModel.Head.copyFrom(this.getParentModel().head);
-
-        poseStack.pushPose();
-        applyCrouchOffset(poseStack, player, RENDER_VERTICAL_OFFSET, RENDER_FORWARD_OFFSET);
-        applyCrouchRotation(poseStack, player, RENDER_CROUCH_ROTATION_X);
-
-        VertexConsumer vc = buffer.getBuffer(RenderType.entityCutoutNoCull(ResourceLocation.fromNamespaceAndPath(Inventory.MODID, "textures/entities/cap.png")));
-        this.capModel.renderToBuffer(
-                poseStack,
-                vc,
-                packedLight,
-                LivingEntityRenderer.getOverlayCoords(player, 0.0F),
-                1.0F, 1.0F, 1.0F, 1.0F
-        );
-        poseStack.popPose();
-    }
-
-    private void applyCrouchOffset(PoseStack poseStack,
-                                   AbstractClientPlayer player,
-                                   double verticalOffset,
-                                   double forwardOffset) {
-        if (player.isCrouching()) {
-            poseStack.translate(0.0D, verticalOffset, forwardOffset);
-        }
-    }
-
-    private void applyCrouchRotation(PoseStack poseStack, AbstractClientPlayer player, float rotationX) {
-        if (player.isCrouching()) {
-            poseStack.mulPose(com.mojang.math.Axis.XP.rotation(rotationX));
-        }
-    }
-
     private Optional<ResourceLocation> resolveTexture(ItemStack stack, EquipmentSlotType slotType) {
         ResourceLocation itemId = ForgeRegistries.ITEMS.getKey(stack.getItem());
         if (itemId == null) {
@@ -286,14 +376,68 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
         if ("cargo_pants".equals(itemName)) {
             return firstExisting(customEntity("cargo_pants"));
         }
+        if ("jeans_black".equals(itemName)) {
+            return firstExisting(customEntity("jeans_black"));
+        }
         if ("patrol_jacket".equals(itemName)) {
             return firstExisting(customEntity("patrol_jacket"));
+        }
+        if ("jeans_black".equals(itemName)) {
+            return firstExisting(customEntity("jeans_black"));
+        }
+        if ("shirt_red".equals(itemName)) {
+            return firstExisting(customEntity("shirt_red"));
+        }
+        if ("shirt_green".equals(itemName)) {
+            return firstExisting(customEntity("shirt_green"));
+        }
+        if ("shirt_blue".equals(itemName)) {
+            return firstExisting(customEntity("shirt_blue"));
+        }
+        if ("sneakers_red".equals(itemName)) {
+            return firstExisting(customEntity("sneakers_red"));
+        }
+        if ("sneakers_green".equals(itemName)) {
+            return firstExisting(customEntity("sneakers_green"));
+        }
+        if ("sneakers_blue".equals(itemName)) {
+            return firstExisting(customEntity("sneakers_blue"));
         }
         if ("travel_backpack".equals(itemName)) {
             return firstExisting(customEntity("backpack"));
         }
+        if ("black_shoulder_bag".equals(itemName)) {
+            return firstExisting(customEntity("black_shoulder_bag"));
+        }
         if ("cap".equals(itemName)) {
             return firstExisting(customEntity("cap"));
+        }
+        if ("cap_blue".equals(itemName)) {
+            return firstExisting(customEntity("cap_blue"));
+        }
+        if ("cap_white".equals(itemName)) {
+            return firstExisting(customEntity("cap_white"));
+        }
+        if ("cap_black".equals(itemName)) {
+            return firstExisting(customEntity("cap_black"));
+        }
+        if ("helmet_6b47_desert_emr".equals(itemName)) {
+            return firstExisting(customEntity("helmet_6b47_desert_emr"));
+        }
+        if ("m40_gasmask".equals(itemName)) {
+            return firstExisting(customEntity("m40_gasmask"));
+        }
+        if ("usa_hazmat_cap".equals(itemName)) {
+            return firstExisting(customEntity("usa_hazmat_cap"));
+        }
+        if ("usa_hazmat_chestplate".equals(itemName)) {
+            return firstExisting(customEntity("usa_hazmat_chestplate"));
+        }
+        if ("usa_hazmat_leggings".equals(itemName)) {
+            return firstExisting(customEntity("usa_hazmat_leggings"));
+        }
+        if ("tactical_helmet_desert".equals(itemName)) {
+            return firstExisting(customEntity("tactical_helmet_desert"));
         }
         if ("desert_cap".equals(itemName)) {
             return firstExisting(customEntity("desert_cap"), customEntity("desert_cap_t"));
@@ -307,11 +451,32 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
         if ("tactical_vest_black".equals(itemName)) {
             return firstExisting(customEntity("tactical_vest_black"), customEntity("tactical_vest"));
         }
+        if ("ddr_belt".equals(itemName)) {
+            return firstExisting(customEntity("ddr_belt"));
+        }
+        if ("vest_lifchik".equals(itemName)) {
+            return firstExisting(customEntity("vest_lifchik"));
+        }
+        if ("vest_6sh117_desert".equals(itemName)) {
+            return firstExisting(customEntity("vest_6sh117_desert"));
+        }
+        if ("vest_6b2_tan".equals(itemName)) {
+            return firstExisting(customEntity("vest_6b2_tan"));
+        }
+        if ("vest_plate_carrier_desert".equals(itemName)) {
+            return firstExisting(customEntity("vest_plate_carrier_desert"));
+        }
         if ("tactical_gloves".equals(itemName)) {
             return firstExisting(customEntity("tactical_gloves"));
         }
+        if ("rubber_gloves_chemical_protection".equals(itemName)) {
+            return firstExisting(customEntity("rubber_gloves_chemical_protection"));
+        }
         if ("tactical_boots".equals(itemName)) {
             return firstExisting(customEntity("tactical_boots"));
+        }
+        if ("rubber_boots_chemical_protection".equals(itemName)) {
+            return firstExisting(customEntity("rubber_boots_chemical_protection"));
         }
 
         // Vanilla fallback for items without dedicated entity texture.
@@ -328,6 +493,7 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
             default -> VANILLA_LAYER_1;
         };
     }
+
 
     private Optional<ResourceLocation> firstExisting(ResourceLocation... candidates) {
         for (ResourceLocation candidate : candidates) {

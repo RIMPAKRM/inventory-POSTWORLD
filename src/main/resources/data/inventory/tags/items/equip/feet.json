@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "inventory:tactical_boots"
+    "inventory:tactical_boots",
+    "inventory:rubber_boots_chemical_protection",
+    "inventory:sneakers_red",
+    "inventory:sneakers_green",
+    "inventory:sneakers_blue"
   ]
 }

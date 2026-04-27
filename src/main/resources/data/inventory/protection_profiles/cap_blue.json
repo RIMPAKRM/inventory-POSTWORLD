@@ -1,0 +1,8 @@
+{
+  "items": ["inventory:cap_blue"],
+  "armorValue": 1.0,
+  "durabilityModifier": 1.0,
+  "weightClass": "light",
+  "tags": ["inventory:armor/light"],
+  "priority": 10
+}

@@ -469,5 +469,11 @@
     },
     "done": true
   },
+  "minecraft:adventure/sleep_in_bed": {
+    "criteria": {
+      "slept_in_bed": "2026-04-27 01:18:42 +0500"
+    },
+    "done": true
+  },
   "DataVersion": 3465
 }

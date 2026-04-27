@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "inventory:item/helmet_6b47_desert_emr_t"
+  }
+}

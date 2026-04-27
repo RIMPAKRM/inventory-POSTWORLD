@@ -2,7 +2,8 @@
   "replace": false,
   "values": [
     "inventory:tactical_gloves",
-    "inventory:work_gloves"
+    "inventory:work_gloves",
+    "inventory:rubber_gloves_chemical_protection"
   ]
 }
 

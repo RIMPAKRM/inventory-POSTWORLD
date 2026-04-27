@@ -1,97 +1,128 @@
-[25апр.2026 15:40:22.477] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, C:\Users\GameBox\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412]
-[25апр.2026 15:40:22.483] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.18 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[25апр.2026 15:40:22.618] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[25апр.2026 15:40:22.681] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[25апр.2026 15:40:22.826] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
-[25апр.2026 15:40:22.905] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/GameBox/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[25апр.2026 15:40:22.954] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 3070 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 595.97, NVIDIA Corporation
-[25апр.2026 15:40:23.294] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.10\ccc533c7dd67e0983217197d7549c8b49e7ab453\javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[25апр.2026 15:40:23.296] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.10\e9a2879fe3612ea34b9728ec2633304a1e67d480\lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[25апр.2026 15:40:23.299] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.10\ec5cefbbc65c67302b8fac317010faab85fa14b9\mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[25апр.2026 15:40:23.301] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.10\94dae566be650566ea9115a1414ab76bfcf5a804\fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
-[25апр.2026 15:40:23.411] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[25апр.2026 15:40:24.930] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\GameBox\.gradle\caches\forge_gradle\assets, --assetIndex, 5]
-[25апр.2026 15:40:29.122] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 137 milliseconds
-[25апр.2026 15:40:31.020] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/GameBox/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_official_1.20.1/forge-1.20.1-47.4.10_mapped_official_1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[25апр.2026 15:40:31.021] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/GameBox/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_official_1.20.1/forge-1.20.1-47.4.10_mapped_official_1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[25апр.2026 15:40:31.049] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[25апр.2026 15:40:31.052] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[25апр.2026 15:40:31.159] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[25апр.2026 15:40:31.412] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
-[25апр.2026 15:40:31.417] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
-[25апр.2026 15:40:32.192] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [inventory]
-[25апр.2026 15:40:32.356] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources
-[25апр.2026 15:40:32.472] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: [Inventory] common setup
-[25апр.2026 15:40:32.482] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: DIRT BLOCK >> minecraft:dirt
-[25апр.2026 15:40:32.483] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: The magic number is... 42
-[25апр.2026 15:40:32.483] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: ITEM >> iron_ingot
-[25апр.2026 15:40:32.566] [Worker-Main-2/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
-[25апр.2026 15:40:32.754] [Worker-Main-7/INFO] [org.inventory.inventory.Inventory/]: [Inventory] client setup, player=Dev
-[25апр.2026 15:40:32.755] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[25апр.2026 15:40:32.762] [Worker-Main-9/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture inventory:item/patrol_jacket_t with size 259x255 limits mip level from 4 to 0
-[25апр.2026 15:40:32.787] [Worker-Main-7/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=0 cards=0 storageProfiles=0 protectionItems=0 issues=0
-[25апр.2026 15:40:33.232] [Worker-Main-10/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Exception loading blockstate definition: 'inventory:blockstates/example_block.json' missing model for variant: 'inventory:example_block#'
-[25апр.2026 15:40:33.237] [Worker-Main-10/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'inventory:example_block#inventory' referenced from: inventory:example_block#inventory: java.io.FileNotFoundException: inventory:models/item/example_block.json
-[25апр.2026 15:40:33.237] [Worker-Main-10/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'inventory:example_item#inventory' referenced from: inventory:example_item#inventory: java.io.FileNotFoundException: inventory:models/item/example_item.json
-[25апр.2026 15:40:33.468] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: UP_TO_DATE Current: 47.4.10 Target: null
-[25апр.2026 15:40:33.820] [Worker-Main-10/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model inventory:expedition_pack#inventory:
+[27апр.2026 21:37:20.587] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, C:\Users\GameBox\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412]
+[27апр.2026 21:37:20.591] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.18 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[27апр.2026 21:37:20.702] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[27апр.2026 21:37:20.756] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[27апр.2026 21:37:20.904] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[27апр.2026 21:37:20.996] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/GameBox/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[27апр.2026 21:37:21.038] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 3070 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 595.97, NVIDIA Corporation
+[27апр.2026 21:37:21.348] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.10\ccc533c7dd67e0983217197d7549c8b49e7ab453\javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[27апр.2026 21:37:21.351] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.10\e9a2879fe3612ea34b9728ec2633304a1e67d480\lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[27апр.2026 21:37:21.353] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.10\ec5cefbbc65c67302b8fac317010faab85fa14b9\mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[27апр.2026 21:37:21.356] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\GameBox\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.10\94dae566be650566ea9115a1414ab76bfcf5a804\fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
+[27апр.2026 21:37:21.501] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[27апр.2026 21:37:22.773] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\GameBox\.gradle\caches\forge_gradle\assets, --assetIndex, 5]
+[27апр.2026 21:37:26.131] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 93 milliseconds
+[27апр.2026 21:37:27.625] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/GameBox/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_official_1.20.1/forge-1.20.1-47.4.10_mapped_official_1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[27апр.2026 21:37:27.626] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/GameBox/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_official_1.20.1/forge-1.20.1-47.4.10_mapped_official_1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[27апр.2026 21:37:27.661] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[27апр.2026 21:37:27.675] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[27апр.2026 21:37:27.751] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[27апр.2026 21:37:27.953] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
+[27апр.2026 21:37:27.956] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
+[27апр.2026 21:37:28.693] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [inventory]
+[27апр.2026 21:37:28.809] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources
+[27апр.2026 21:37:28.836] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: [Inventory] common setup
+[27апр.2026 21:37:28.845] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: DIRT BLOCK >> minecraft:dirt
+[27апр.2026 21:37:28.846] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: The magic number is... 42
+[27апр.2026 21:37:28.847] [Worker-Main-10/INFO] [org.inventory.inventory.Inventory/]: ITEM >> iron_ingot
+[27апр.2026 21:37:28.984] [Worker-Main-4/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
+[27апр.2026 21:37:29.033] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[27апр.2026 21:37:29.117] [Worker-Main-16/INFO] [org.inventory.inventory.Inventory/]: [Inventory] client setup, player=Dev
+[27апр.2026 21:37:29.140] [Worker-Main-16/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=0 cards=0 storageProfiles=0 protectionItems=0 issues=0
+[27апр.2026 21:37:29.150] [Worker-Main-6/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture inventory:item/black_shoulder_bag_t with size 759x785 limits mip level from 4 to 0
+[27апр.2026 21:37:29.497] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Exception loading blockstate definition: 'inventory:blockstates/example_block.json' missing model for variant: 'inventory:example_block#'
+[27апр.2026 21:37:29.500] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'inventory:example_block#inventory' referenced from: inventory:example_block#inventory: java.io.FileNotFoundException: inventory:models/item/example_block.json
+[27апр.2026 21:37:29.500] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'inventory:example_item#inventory' referenced from: inventory:example_item#inventory: java.io.FileNotFoundException: inventory:models/item/example_item.json
+[27апр.2026 21:37:29.653] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: UP_TO_DATE Current: 47.4.10 Target: null
+[27апр.2026 21:37:30.046] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model inventory:expedition_pack#inventory:
     minecraft:textures/atlas/blocks.png:minecraft:item/barrel
-[25апр.2026 15:40:33.822] [Worker-Main-10/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model inventory:desert_cap#inventory:
+[27апр.2026 21:37:30.046] [Worker-Main-8/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model inventory:desert_cap#inventory:
     minecraft:textures/atlas/blocks.png:inventory:item/desert_cap_t
-[25апр.2026 15:40:35.109] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[25апр.2026 15:40:35.109] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[25апр.2026 15:40:35.161] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Динамики (HyperX Cloud Core Wireless)
-[25апр.2026 15:40:35.162] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[25апр.2026 15:40:35.279] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
-[25апр.2026 15:40:35.289] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[25апр.2026 15:40:35.289] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[25апр.2026 15:40:35.289] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[25апр.2026 15:40:35.291] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[25апр.2026 15:40:35.292] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[25апр.2026 15:40:35.294] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[25апр.2026 15:40:35.294] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[25апр.2026 15:40:35.294] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[25апр.2026 15:40:35.505] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[25апр.2026 15:40:35.545] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[25апр.2026 15:40:35.546] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[25апр.2026 15:40:35.547] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[25апр.2026 15:40:35.971] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
-[25апр.2026 15:41:09.216] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
-[25апр.2026 15:41:10.101] [Render thread/INFO] [org.inventory.inventory.event.ServerEventHandler/]: [ServerEventHandler] registered data reload listener
-[25апр.2026 15:41:10.435] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[25апр.2026 15:41:10.538] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1271 advancements
-[25апр.2026 15:41:10.552] [Render thread/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=12 storageProfiles=11 protectionItems=12 issues=0
-[25апр.2026 15:41:10.856] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
-[25апр.2026 15:41:10.856] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[25апр.2026 15:41:11.565] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[25апр.2026 15:41:13.397] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25апр.2026 15:41:13.397] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25апр.2026 15:41:13.416] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25апр.2026 15:41:13.416] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25апр.2026 15:41:13.577] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25апр.2026 15:41:14.076] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 86%
-[25апр.2026 15:41:14.111] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[25апр.2026 15:41:14.111] [Server thread/INFO] [org.inventory.inventory.Inventory/]: [Inventory] server starting
-[25апр.2026 15:41:14.114] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 2542 ms
-[25апр.2026 15:41:14.124] [Server thread/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=12 storageProfiles=11 protectionItems=12 issues=0
-[25апр.2026 15:41:14.230] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[25апр.2026 15:41:14.231] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[25апр.2026 15:41:14.361] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[25апр.2026 15:41:15.248] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[25апр.2026 15:41:15.357] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:ea055802] logged in with entity id 287 at (26.066558183416902, 119.0, 74.69999998807907)
-[25апр.2026 15:41:15.444] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
-[25апр.2026 15:41:16.074] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 127 advancements
-[25апр.2026 15:41:23.898] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
-[25апр.2026 15:41:23.931] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Отключение
-[25апр.2026 15:41:23.931] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev покинул игру
-[25апр.2026 15:41:23.948] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
-[25апр.2026 15:41:23.974] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[25апр.2026 15:41:23.975] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[25апр.2026 15:41:23.975] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[25апр.2026 15:41:24.114] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25апр.2026 15:41:24.217] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25апр.2026 15:41:24.218] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25апр.2026 15:41:24.243] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Новый мир (2)): All chunks are saved
-[25апр.2026 15:41:24.243] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[25апр.2026 15:41:24.243] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[25апр.2026 15:41:24.243] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[27апр.2026 21:37:30.847] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[27апр.2026 21:37:30.847] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[27апр.2026 21:37:30.873] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Динамики (HyperX Cloud Core Wireless)
+[27апр.2026 21:37:30.873] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[27апр.2026 21:37:30.949] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 4096x4096x4 minecraft:textures/atlas/blocks.png-atlas
+[27апр.2026 21:37:30.972] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[27апр.2026 21:37:30.972] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[27апр.2026 21:37:30.972] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[27апр.2026 21:37:30.972] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[27апр.2026 21:37:30.974] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[27апр.2026 21:37:30.975] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[27апр.2026 21:37:30.975] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[27апр.2026 21:37:30.975] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[27апр.2026 21:37:31.150] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[27апр.2026 21:37:31.188] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[27апр.2026 21:37:31.189] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[27апр.2026 21:37:31.191] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[27апр.2026 21:37:31.736] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
+[27апр.2026 21:37:34.463] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
+[27апр.2026 21:37:35.364] [Render thread/INFO] [org.inventory.inventory.event.ServerEventHandler/]: [ServerEventHandler] registered data reload listener
+[27апр.2026 21:37:35.612] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
+[27апр.2026 21:37:35.689] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1271 advancements
+[27апр.2026 21:37:35.709] [Render thread/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=12 storageProfiles=19 protectionItems=33 issues=0
+[27апр.2026 21:37:35.937] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
+[27апр.2026 21:37:35.937] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[27апр.2026 21:37:36.585] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[27апр.2026 21:37:38.037] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27апр.2026 21:37:38.054] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27апр.2026 21:37:38.054] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27апр.2026 21:37:38.106] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27апр.2026 21:37:38.588] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 10%
+[27апр.2026 21:37:38.903] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[27апр.2026 21:37:38.903] [Server thread/INFO] [org.inventory.inventory.Inventory/]: [Inventory] server starting
+[27апр.2026 21:37:38.914] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 2326 ms
+[27апр.2026 21:37:38.922] [Server thread/INFO] [org.inventory.inventory.data.DataDrivenContentLoader/]: [DataLoader] loaded categories=1 cards=12 storageProfiles=19 protectionItems=33 issues=0
+[27апр.2026 21:37:39.008] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[27апр.2026 21:37:39.010] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[27апр.2026 21:37:39.119] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[27апр.2026 21:37:39.942] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
+[27апр.2026 21:37:39.987] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:01c8b27f] logged in with entity id 274 at (27.002687626781153, 118.0, 73.83298707252801)
+[27апр.2026 21:37:40.045] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
+[27апр.2026 21:37:40.572] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 127 advancements
+[27апр.2026 21:39:09.496] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Выдано 1 [Чёрная наплечная сумка] игроку Dev]
+[27апр.2026 21:39:09.502] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Выдано 1 [Чёрная наплечная сумка] игроку Dev
+[27апр.2026 21:39:26.084] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Творческий режим]
+[27апр.2026 21:39:26.085] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Творческий режим
+[27апр.2026 21:42:14.076] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Режим приключений]
+[27апр.2026 21:42:14.076] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Режим приключений
+[27апр.2026 21:44:23.017] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27апр.2026 21:44:23.022] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27апр.2026 21:44:23.030] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27апр.2026 21:44:23.031] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27апр.2026 21:48:32.560] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev разбился насмерть
+[27апр.2026 21:48:32.565] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Dev разбился насмерть
+[27апр.2026 21:48:32.869] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Снимок экрана сохранён как 2026-04-27_21.48.32.png
+[27апр.2026 21:48:32.934] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Снимок экрана сохранён как 2026-04-27_21.48.32_2.png
+[27апр.2026 21:48:36.463] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27апр.2026 21:48:36.469] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27апр.2026 21:48:36.472] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27апр.2026 21:48:36.473] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27апр.2026 21:48:37.708] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Режим наблюдателя]
+[27апр.2026 21:48:37.708] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Режим наблюдателя
+[27апр.2026 21:48:44.347] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Режим приключений]
+[27апр.2026 21:48:44.353] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Режим приключений
+[27апр.2026 21:48:52.676] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] [Отладка]: Хитбоксы: вкл.
+[27апр.2026 21:48:58.356] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Режим наблюдателя]
+[27апр.2026 21:48:58.357] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Режим наблюдателя
+[27апр.2026 21:49:01.566] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Режим приключений]
+[27апр.2026 21:49:01.567] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Режим приключений
+[27апр.2026 21:49:17.789] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] [Отладка]: Хитбоксы: выкл.
+[27апр.2026 21:49:45.812] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27апр.2026 21:49:45.816] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27апр.2026 21:49:45.820] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27апр.2026 21:49:45.822] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27апр.2026 21:49:46.267] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Отключение
+[27апр.2026 21:49:46.267] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev покинул игру
+[27апр.2026 21:49:46.272] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
+[27апр.2026 21:49:46.313] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[27апр.2026 21:49:46.313] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[27апр.2026 21:49:46.313] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[27апр.2026 21:49:46.373] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27апр.2026 21:49:46.437] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27апр.2026 21:49:46.438] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27апр.2026 21:49:46.449] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Новый мир (2)): All chunks are saved
+[27апр.2026 21:49:46.449] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[27апр.2026 21:49:46.449] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[27апр.2026 21:49:46.449] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[27апр.2026 21:49:47.367] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!

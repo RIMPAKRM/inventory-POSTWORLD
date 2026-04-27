@@ -64,11 +64,32 @@ public class Inventory {
     public static final RegistryObject<Item> RUGGED_VEST = ITEMS.register("rugged_vest", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> TACTICAL_VEST = ITEMS.register("tactical_vest", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> TACTICAL_VEST_BLACK = ITEMS.register("tactical_vest_black", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> DDR_BELT = ITEMS.register("ddr_belt", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> VEST_LIFCHIK = ITEMS.register("vest_lifchik", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> VEST_6SH117_DESERT = ITEMS.register("vest_6sh117_desert", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> VEST_6B2_TAN = ITEMS.register("vest_6b2_tan", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> VEST_PLATE_CARRIER_DESERT = ITEMS.register("vest_plate_carrier_desert", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> TACTICAL_HELMET_DESERT = ITEMS.register("tactical_helmet_desert", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> HELMET_6B47_DESERT_EMR = ITEMS.register("helmet_6b47_desert_emr", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> M40_GASMASK = ITEMS.register("m40_gasmask", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> USA_HAZMAT_CAP = ITEMS.register("usa_hazmat_cap", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> USA_HAZMAT_CHESTPLATE = ITEMS.register("usa_hazmat_chestplate", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> USA_HAZMAT_LEGGINGS = ITEMS.register("usa_hazmat_leggings", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLACK_SHOULDER_BAG = ITEMS.register("black_shoulder_bag", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> TRAVEL_BACKPACK = ITEMS.register("travel_backpack", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> FIELD_JACKET = ITEMS.register("field_jacket", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SHIRT_RED = ITEMS.register("shirt_red", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SHIRT_GREEN = ITEMS.register("shirt_green", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SHIRT_BLUE = ITEMS.register("shirt_blue", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> TACTICAL_GLOVES = ITEMS.register("tactical_gloves", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> TACTICAL_BOOTS = ITEMS.register("tactical_boots", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SNEAKERS_RED = ITEMS.register("sneakers_red", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SNEAKERS_GREEN = ITEMS.register("sneakers_green", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SNEAKERS_BLUE = ITEMS.register("sneakers_blue", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> RUBBER_GLOVES_CHEMICAL_PROTECTION = ITEMS.register("rubber_gloves_chemical_protection", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> RUBBER_BOOTS_CHEMICAL_PROTECTION = ITEMS.register("rubber_boots_chemical_protection", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> CARGO_PANTS = ITEMS.register("cargo_pants", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> JEANS_BLACK = ITEMS.register("jeans_black", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> PATROL_JACKET = ITEMS.register("patrol_jacket", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> CHEST_RIG = ITEMS.register("chest_rig", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> EXPEDITION_PACK = ITEMS.register("expedition_pack", () -> new Item(new Item.Properties().stacksTo(1)));
@@ -77,6 +98,9 @@ public class Inventory {
     public static final RegistryObject<Item> DESERT_CAP = ITEMS.register("desert_cap", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BALACLAVA = ITEMS.register("balaclava", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> CAP = ITEMS.register("cap", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> CAP_BLUE = ITEMS.register("cap_blue", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> CAP_WHITE = ITEMS.register("cap_white", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> CAP_BLACK = ITEMS.register("cap_black", () -> new Item(new Item.Properties().stacksTo(1)));
     // Creates a creative tab with the id "inventory:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
         output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
@@ -138,11 +162,32 @@ public class Inventory {
             event.accept(RUGGED_VEST.get());
             event.accept(TACTICAL_VEST.get());
             event.accept(TACTICAL_VEST_BLACK.get());
+            event.accept(DDR_BELT.get());
+            event.accept(VEST_LIFCHIK.get());
+            event.accept(VEST_6SH117_DESERT.get());
+            event.accept(VEST_6B2_TAN.get());
+            event.accept(VEST_PLATE_CARRIER_DESERT.get());
+            event.accept(TACTICAL_HELMET_DESERT.get());
+            event.accept(HELMET_6B47_DESERT_EMR.get());
+            event.accept(M40_GASMASK.get());
+            event.accept(USA_HAZMAT_CAP.get());
+            event.accept(USA_HAZMAT_CHESTPLATE.get());
+            event.accept(USA_HAZMAT_LEGGINGS.get());
+            event.accept(BLACK_SHOULDER_BAG.get());
             event.accept(TRAVEL_BACKPACK.get());
             event.accept(FIELD_JACKET.get());
+            event.accept(SHIRT_RED.get());
+            event.accept(SHIRT_GREEN.get());
+            event.accept(SHIRT_BLUE.get());
             event.accept(TACTICAL_GLOVES.get());
+            event.accept(RUBBER_GLOVES_CHEMICAL_PROTECTION.get());
             event.accept(TACTICAL_BOOTS.get());
+            event.accept(RUBBER_BOOTS_CHEMICAL_PROTECTION.get());
+            event.accept(SNEAKERS_RED.get());
+            event.accept(SNEAKERS_GREEN.get());
+            event.accept(SNEAKERS_BLUE.get());
             event.accept(CARGO_PANTS.get());
+            event.accept(JEANS_BLACK.get());
             event.accept(PATROL_JACKET.get());
             event.accept(CHEST_RIG.get());
             event.accept(EXPEDITION_PACK.get());
@@ -151,6 +196,9 @@ public class Inventory {
             event.accept(DESERT_CAP.get());
             event.accept(BALACLAVA.get());
             event.accept(CAP.get());
+            event.accept(CAP_BLUE.get());
+            event.accept(CAP_WHITE.get());
+            event.accept(CAP_BLACK.get());
         }
     }
 
@@ -190,9 +238,49 @@ public class Inventory {
                     org.inventory.inventory.client.renderer.backpack.BackpackModel.LAYER_LOCATION,
                     org.inventory.inventory.client.renderer.backpack.BackpackModel::createBodyLayer
             );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.backpack.black_shoulder_bag.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.backpack.black_shoulder_bag::createBodyLayer
+                );
             event.registerLayerDefinition(
                     org.inventory.inventory.client.renderer.head.CapModel.LAYER_LOCATION,
                     org.inventory.inventory.client.renderer.head.CapModel::createBodyLayer
+            );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.head.TacticalHelmetDesertModel.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.head.TacticalHelmetDesertModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.head.Helmet6b47DesertEmrModel.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.head.Helmet6b47DesertEmrModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                        org.inventory.inventory.client.renderer.face.M40GasmaskModel.LAYER_LOCATION,
+                        org.inventory.inventory.client.renderer.face.M40GasmaskModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                        org.inventory.inventory.client.renderer.head.UsaHazmatCapModel.LAYER_LOCATION,
+                        org.inventory.inventory.client.renderer.head.UsaHazmatCapModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.vest.VestLifchikModel.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.vest.VestLifchikModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.vest.Vest6sh117DesertModel.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.vest.Vest6sh117DesertModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.vest.Vest6b2TanModel.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.vest.Vest6b2TanModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.vest.VestPlateCarrierDesertModel.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.vest.VestPlateCarrierDesertModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                    org.inventory.inventory.client.renderer.vest.DdrBeltModel.LAYER_LOCATION,
+                    org.inventory.inventory.client.renderer.vest.DdrBeltModel::createBodyLayer
             );
             event.registerLayerDefinition(
                     org.inventory.inventory.client.renderer.vest.TacticalVestModel.LAYER_LOCATION,

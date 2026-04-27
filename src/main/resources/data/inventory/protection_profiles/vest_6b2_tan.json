@@ -1,0 +1,8 @@
+{
+  "items": ["inventory:vest_6b2_tan"],
+  "armorValue": 6.0,
+  "durabilityModifier": 1.15,
+  "weightClass": "medium",
+  "tags": ["inventory:armor/medium"],
+  "priority": 10
+}

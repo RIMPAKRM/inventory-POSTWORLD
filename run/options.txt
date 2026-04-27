@@ -134,4 +134,4 @@ modelPart_left_sleeve:false
 modelPart_right_sleeve:false
 modelPart_left_pants_leg:false
 modelPart_right_pants_leg:false
-modelPart_hat:true
+modelPart_hat:false

@@ -1,8 +1,14 @@
 {
   "replace": false,
   "values": [
+    "inventory:helmet_6b47_desert_emr",
+    "inventory:tactical_helmet_desert",
     "inventory:desert_cap",
-    "inventory:cap"
+    "inventory:cap",
+    "inventory:cap_blue",
+    "inventory:cap_black",
+    "inventory:cap_white",
+    "inventory:usa_hazmat_cap"
   ]
 }
 

@@ -12,6 +12,8 @@ import org.jetbrains.annotations.Nullable;
  * Capability provider that wraps PlayerLoadout and exposes it via the Forge
  * capability system. Attached to every Player entity via AttachCapabilitiesEvent.
  */
+
+
 public class PlayerLoadoutProvider implements ICapabilitySerializable<CompoundTag> {
 
     private final PlayerLoadout loadout = new PlayerLoadout();

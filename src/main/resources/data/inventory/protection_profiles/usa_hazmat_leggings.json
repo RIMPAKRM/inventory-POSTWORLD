@@ -1,0 +1,8 @@
+{
+  "items": ["inventory:usa_hazmat_leggings"],
+  "armorValue": 2.0,
+  "durabilityModifier": 1.1,
+  "weightClass": "medium",
+  "tags": ["inventory:armor/medium"],
+  "priority": 10
+}
