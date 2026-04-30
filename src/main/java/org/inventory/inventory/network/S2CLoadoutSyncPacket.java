@@ -14,6 +14,7 @@ import org.inventory.inventory.client.ClientLoadoutState;
 import org.inventory.inventory.client.PendingActionTracker;
 import org.slf4j.Logger;
 
+import java.util.UUID;
 import java.util.function.Supplier;
 
 /**
@@ -28,10 +29,12 @@ public final class S2CLoadoutSyncPacket {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public final UUID targetPlayerId;
     public final long serverVersion;
     public final CompoundTag loadoutNbt;
 
-    public S2CLoadoutSyncPacket(long serverVersion, CompoundTag loadoutNbt) {
+    public S2CLoadoutSyncPacket(UUID targetPlayerId, long serverVersion, CompoundTag loadoutNbt) {
+        this.targetPlayerId = targetPlayerId;
         this.serverVersion = serverVersion;
         this.loadoutNbt = loadoutNbt == null ? new CompoundTag() : loadoutNbt.copy();
     }
@@ -39,14 +42,16 @@ public final class S2CLoadoutSyncPacket {
     // ---- Codec ----
 
     public void encode(FriendlyByteBuf buf) {
+        buf.writeUUID(targetPlayerId);
         buf.writeLong(serverVersion);
         buf.writeNbt(loadoutNbt);
     }
 
     public static S2CLoadoutSyncPacket decode(FriendlyByteBuf buf) {
+        UUID targetPlayerId = buf.readUUID();
         long version = buf.readLong();
         CompoundTag nbt = buf.readNbt();
-        return new S2CLoadoutSyncPacket(version, nbt);
+        return new S2CLoadoutSyncPacket(targetPlayerId, version, nbt);
     }
 
     // ---- Handler ----
@@ -64,24 +69,31 @@ public final class S2CLoadoutSyncPacket {
     @OnlyIn(Dist.CLIENT)
     private void handleOnClient() {
         Minecraft mc = Minecraft.getInstance();
-        Player player = mc.player;
-        if (player == null) return;
+        if (mc.level == null) return;
 
-        LOGGER.debug("[S2C_Sync] received serverVersion={}", serverVersion);
+        Player targetPlayer = mc.level.getPlayerByUUID(targetPlayerId);
+        if (targetPlayer == null && mc.player != null && mc.player.getUUID().equals(targetPlayerId)) {
+            targetPlayer = mc.player;
+        }
+        if (targetPlayer == null) return;
 
-        player.getCapability(LoadoutCapability.PLAYER_LOADOUT).ifPresent(loadout ->
+        LOGGER.debug("[S2C_Sync] received target={} serverVersion={}", targetPlayerId, serverVersion);
+
+        targetPlayer.getCapability(LoadoutCapability.PLAYER_LOADOUT).ifPresent(loadout ->
                 loadout.deserializeNBT(loadoutNbt.copy()));
 
-        ClientLoadoutState.onServerSync(serverVersion);
+        if (mc.player != null && mc.player.getUUID().equals(targetPlayerId)) {
+            ClientLoadoutState.onServerSync(serverVersion);
 
-        // Clear pending actions that have been confirmed
-        PendingActionTracker.onServerAck(serverVersion);
+            // Clear pending actions that have been confirmed
+            PendingActionTracker.onServerAck(serverVersion);
 
-        // Refresh open screens
-        if (mc.screen instanceof org.inventory.inventory.client.screen.InventoryScreen invScreen) {
-            invScreen.onLoadoutSync(serverVersion);
-        } else if (mc.screen instanceof org.inventory.inventory.client.screen.CraftScreen craftScreen) {
-            craftScreen.onLoadoutSync(serverVersion);
+            // Refresh open screens
+            if (mc.screen instanceof org.inventory.inventory.client.screen.InventoryScreen invScreen) {
+                invScreen.onLoadoutSync(serverVersion);
+            } else if (mc.screen instanceof org.inventory.inventory.client.screen.CraftScreen craftScreen) {
+                craftScreen.onLoadoutSync(serverVersion);
+            }
         }
     }
 }

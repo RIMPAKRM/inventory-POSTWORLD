@@ -12,6 +12,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -81,6 +82,14 @@ public final class ServerEventHandler {
                         slotIndex, player.getName().getString());
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerStartTracking(PlayerEvent.StartTracking event) {
+        if (!(event.getEntity() instanceof ServerPlayer tracker)) return;
+        if (!(event.getTarget() instanceof ServerPlayer targetPlayer)) return;
+
+        LoadoutSyncScheduler.sendImmediatelyTo(targetPlayer, tracker);
     }
 
     @SubscribeEvent

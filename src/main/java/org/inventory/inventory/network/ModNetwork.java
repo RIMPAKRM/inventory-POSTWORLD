@@ -19,7 +19,7 @@ import org.inventory.inventory.Inventory;
  */
 public final class ModNetwork {
 
-    private static final String PROTOCOL_VERSION = "3"; // bump when packet layout changes
+        private static final String PROTOCOL_VERSION = "4"; // bump when packet layout changes
     private static int nextId = 0;
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(

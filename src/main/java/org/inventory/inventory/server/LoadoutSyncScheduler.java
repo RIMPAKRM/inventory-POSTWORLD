@@ -60,7 +60,15 @@ public final class LoadoutSyncScheduler {
      */
     public static void sendImmediately(ServerPlayer player) {
         PENDING.remove(player.getUUID());
-        sendSync(player);
+        sendSyncToAll(player);
+    }
+
+    /**
+     * Send the current loadout snapshot only to one client.
+     * Used when a tracker starts watching a player and needs the initial state.
+     */
+    public static void sendImmediatelyTo(ServerPlayer targetPlayer, ServerPlayer recipient) {
+        sendSyncToPlayer(targetPlayer, recipient);
     }
 
     /**
@@ -76,7 +84,7 @@ public final class LoadoutSyncScheduler {
             if (now - entry.getValue() >= debounceMs) {
                 ServerPlayer player = server.getPlayerList().getPlayer(entry.getKey());
                 if (player != null) {
-                    sendSync(player);
+                    sendSyncToAll(player);
                 }
                 return true;
             }
@@ -106,16 +114,29 @@ public final class LoadoutSyncScheduler {
 
     // ---- Internal ----
 
-    private static void sendSync(ServerPlayer player) {
+    private static void sendSyncToAll(ServerPlayer player) {
         player.getCapability(LoadoutCapability.PLAYER_LOADOUT).ifPresent(loadout -> {
             long version = loadout.getLoadoutVersion();
             CompoundTag snapshot = loadout.serializeNBT();
             ModNetwork.CHANNEL.send(
-                    PacketDistributor.PLAYER.with(() -> player),
-                    new S2CLoadoutSyncPacket(version, snapshot));
+                    PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> player),
+                    new S2CLoadoutSyncPacket(player.getUUID(), version, snapshot));
             MetricsService.recordSyncSent(player.getUUID());
             LOGGER.debug("[SyncScheduler] sent S2C_LoadoutSync player={} version={}",
                     player.getName().getString(), version);
+        });
+    }
+
+    private static void sendSyncToPlayer(ServerPlayer targetPlayer, ServerPlayer recipient) {
+        targetPlayer.getCapability(LoadoutCapability.PLAYER_LOADOUT).ifPresent(loadout -> {
+            long version = loadout.getLoadoutVersion();
+            CompoundTag snapshot = loadout.serializeNBT();
+            ModNetwork.CHANNEL.send(
+                    PacketDistributor.PLAYER.with(() -> recipient),
+                    new S2CLoadoutSyncPacket(targetPlayer.getUUID(), version, snapshot));
+            MetricsService.recordSyncSent(targetPlayer.getUUID());
+            LOGGER.debug("[SyncScheduler] sent S2C_LoadoutSync target={} recipient={} version={}",
+                    targetPlayer.getName().getString(), recipient.getName().getString(), version);
         });
     }
 }

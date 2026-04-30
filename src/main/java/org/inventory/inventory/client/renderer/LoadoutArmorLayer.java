@@ -274,13 +274,85 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
         setVisiblePartsForSlot(model, slotType);
 
         VertexConsumer vc = buffer.getBuffer(RenderType.entityCutoutNoCull(texture));
+        poseStack.pushPose();
+        inflateVisibleParts(model, slotType);
         model.renderToBuffer(
-                poseStack,
-                vc,
-                packedLight,
-                LivingEntityRenderer.getOverlayCoords(player, 0.0F),
-                1.0F, 1.0F, 1.0F, 1.0F
+            poseStack,
+            vc,
+            packedLight,
+            LivingEntityRenderer.getOverlayCoords(player, 0.0F),
+            1.0F, 1.0F, 1.0F, 1.0F
         );
+        deflateVisibleParts(model, slotType);
+        poseStack.popPose();
+    }
+
+    private void inflateVisibleParts(PlayerModel<AbstractClientPlayer> model, EquipmentSlotType slotType) {
+        float inflation = 0.01F;
+        switch (slotType) {
+            case HEAD -> {
+                inflate(model.hat, inflation);
+            }
+            case FACE -> {
+                inflate(model.head, inflation);
+            }
+            case CHEST -> {
+                inflate(model.body, inflation);
+                inflate(model.rightArm, inflation);
+                inflate(model.leftArm, inflation);
+                inflate(model.rightSleeve, inflation);
+                inflate(model.leftSleeve, inflation);
+            }
+            case GLOVES -> {
+                inflate(model.rightArm, inflation);
+                inflate(model.leftArm, inflation);
+                inflate(model.rightSleeve, inflation);
+                inflate(model.leftSleeve, inflation);
+            }
+            case LEGS, FEET -> {
+                inflate(model.rightLeg, inflation);
+                inflate(model.leftLeg, inflation);
+                inflate(model.rightPants, inflation);
+                inflate(model.leftPants, inflation);
+            }
+        }
+    }
+
+    private void deflateVisibleParts(PlayerModel<AbstractClientPlayer> model, EquipmentSlotType slotType) {
+        float inflation = -0.01F;
+        switch (slotType) {
+            case HEAD -> {
+                inflate(model.hat, inflation);
+            }
+            case FACE -> {
+                inflate(model.head, inflation);
+            }
+            case CHEST -> {
+                inflate(model.body, inflation);
+                inflate(model.rightArm, inflation);
+                inflate(model.leftArm, inflation);
+                inflate(model.rightSleeve, inflation);
+                inflate(model.leftSleeve, inflation);
+            }
+            case GLOVES -> {
+                inflate(model.rightArm, inflation);
+                inflate(model.leftArm, inflation);
+                inflate(model.rightSleeve, inflation);
+                inflate(model.leftSleeve, inflation);
+            }
+            case LEGS, FEET -> {
+                inflate(model.rightLeg, inflation);
+                inflate(model.leftLeg, inflation);
+                inflate(model.rightPants, inflation);
+                inflate(model.leftPants, inflation);
+            }
+        }
+    }
+
+    private void inflate(net.minecraft.client.model.geom.ModelPart part, float delta) {
+        part.xScale += delta;
+        part.yScale += delta;
+        part.zScale += delta;
     }
 
     private void setVisiblePartsForSlot(PlayerModel<AbstractClientPlayer> model, EquipmentSlotType slotType) {
