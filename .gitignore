@@ -7,6 +7,8 @@
 .gradle/
 build/
 **/build/
+out/
+.mixin.out/
 !gradle/wrapper/gradle-wrapper.jar
 
 # Keep wrapper jar if committed
@@ -24,14 +26,10 @@ gradle-app.setting
 
 # ---- IDEs ----
 .idea/
+.vscode/
 *.iml
 *.iws
 *.ipr
-
-# VS Code
-.vscode/
-
-# Eclipse
 .settings/
 .project
 .classpath
@@ -43,45 +41,34 @@ desktop.ini
 ehthumbs.db
 Icon
 
-# ---- Minecraft/Forge and runtime ----
+# ---- Minecraft / Forge runtime ----
 /run/
 run-data/
 /logs/
 /crash-reports/
+*.log
+*.log.gz
 
-# Forge generated mapping artifacts
+# ---- Generated outputs ----
 *output.srg
 *output.tsrg
-
-# ---- Gradle plugin / IntelliJ build outputs ----
-out/
-
-# ---- Test results ----
 **/test-results/
 **/build/test-results/
 **/build/reports/tests/
+src/generated/
 
-# ---- Temporary and swap files ----
+# ---- Temporary files ----
 tmp/
 **/*~
 **/*.swp
 **/*.swo
-**/.DS_Store
-**/.idea/**
-
-# ---- Generated sources notionally excluded (e.g. via IDEs) ----
-src/generated/
-
-# ---- Misc ----
-*~
-*.log
 *.tmp
 *.temp
+*.bak
+*.old
 
-# Ignore local user properties
+# ---- Local-only files ----
 local.properties
-
-# Java PKCS12 key store files
 *.jks
 
 # Gradle wrapper output

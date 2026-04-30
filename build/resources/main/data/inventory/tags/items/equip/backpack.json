@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "inventory:example_item",
-    "inventory:travel_backpack",
-    "inventory:expedition_pack"
-  ]
-}
-
