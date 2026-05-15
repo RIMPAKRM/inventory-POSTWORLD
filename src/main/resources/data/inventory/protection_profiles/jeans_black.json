@@ -1,6 +1,6 @@
 {
   "items": ["inventory:jeans_black"],
-  "armorValue": 2.0,
+  "armorValue": 1.0,
   "durabilityModifier": 1.0,
   "weightClass": "light",
   "tags": ["inventory:armor/light"],

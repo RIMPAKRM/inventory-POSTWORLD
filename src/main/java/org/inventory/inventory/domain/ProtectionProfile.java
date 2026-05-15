@@ -20,6 +20,7 @@ public final class ProtectionProfile {
 
     private final ResourceLocation id;
     private final double armorValue;
+    private final double armorToughness;
     private final double durabilityModifier;
     private final String weightClass;
     private final List<ResourceLocation> tags;
@@ -27,16 +28,19 @@ public final class ProtectionProfile {
 
     public ProtectionProfile(ResourceLocation id,
                              double armorValue,
+                             double armorToughness,
                              double durabilityModifier,
                              String weightClass,
                              List<ResourceLocation> tags,
                              int priority) {
         if (id == null) throw new IllegalArgumentException("ProtectionProfile.id must not be null");
         if (armorValue < 0d) throw new IllegalArgumentException("armorValue must be >= 0");
+        if (armorToughness < 0d) throw new IllegalArgumentException("armorToughness must be >= 0");
         if (durabilityModifier <= 0d) throw new IllegalArgumentException("durabilityModifier must be > 0");
 
         this.id = id;
         this.armorValue = armorValue;
+        this.armorToughness = armorToughness;
         this.durabilityModifier = durabilityModifier;
         this.weightClass = (weightClass == null || weightClass.isBlank()) ? "medium" : weightClass;
         this.tags = tags == null ? List.of() : List.copyOf(tags);
@@ -45,6 +49,7 @@ public final class ProtectionProfile {
 
     public ResourceLocation getId() { return id; }
     public double getArmorValue() { return armorValue; }
+    public double getArmorToughness() { return armorToughness; }
     public double getDurabilityModifier() { return durabilityModifier; }
     public String getWeightClass() { return weightClass; }
     public List<ResourceLocation> getTags() { return tags; }

@@ -32,6 +32,8 @@ import net.minecraftforge.registries.RegistryObject;
 import org.inventory.inventory.capability.LoadoutCapability;
 import org.inventory.inventory.data.DataDrivenContentLoader;
 import org.inventory.inventory.menu.CustomInventoryMenu;
+import org.inventory.inventory.menu.StorageBrowserMenu;
+import org.inventory.inventory.item.GearTooltipItem;
 import org.inventory.inventory.network.ModNetwork;
 import org.slf4j.Logger;
 
@@ -55,60 +57,146 @@ public class Inventory {
     public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
 
     // ---- Example content (MDK scaffold — replace with mod content) ----
-    // Creates a new Block with the id "inventory:example_block", combining the namespace and path
-    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-    // Creates a new BlockItem with the id "inventory:example_block", combining the namespace and path
-    public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
-    // Creates a new food item with the id "inventory:example_id", nutrition 1 and saturation 2
-    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(1).saturationMod(2f).build())));
-    public static final RegistryObject<Item> RUGGED_VEST = ITEMS.register("rugged_vest", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> TACTICAL_VEST = ITEMS.register("tactical_vest", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> TACTICAL_VEST_BLACK = ITEMS.register("tactical_vest_black", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> DDR_BELT = ITEMS.register("ddr_belt", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> VEST_LIFCHIK = ITEMS.register("vest_lifchik", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> VEST_6SH117_DESERT = ITEMS.register("vest_6sh117_desert", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> VEST_6B2_TAN = ITEMS.register("vest_6b2_tan", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> VEST_PLATE_CARRIER_DESERT = ITEMS.register("vest_plate_carrier_desert", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> TACTICAL_HELMET_DESERT = ITEMS.register("tactical_helmet_desert", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> HELMET_6B47_DESERT_EMR = ITEMS.register("helmet_6b47_desert_emr", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> M40_GASMASK = ITEMS.register("m40_gasmask", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> USA_HAZMAT_CAP = ITEMS.register("usa_hazmat_cap", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> USA_HAZMAT_CHESTPLATE = ITEMS.register("usa_hazmat_chestplate", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> USA_HAZMAT_LEGGINGS = ITEMS.register("usa_hazmat_leggings", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> BLACK_SHOULDER_BAG = ITEMS.register("black_shoulder_bag", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> TRAVEL_BACKPACK = ITEMS.register("travel_backpack", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> FIELD_JACKET = ITEMS.register("field_jacket", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SHIRT_RED = ITEMS.register("shirt_red", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SHIRT_GREEN = ITEMS.register("shirt_green", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SHIRT_BLUE = ITEMS.register("shirt_blue", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> TACTICAL_GLOVES = ITEMS.register("tactical_gloves", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> TACTICAL_BOOTS = ITEMS.register("tactical_boots", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SNEAKERS_RED = ITEMS.register("sneakers_red", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SNEAKERS_GREEN = ITEMS.register("sneakers_green", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SNEAKERS_BLUE = ITEMS.register("sneakers_blue", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> RUBBER_GLOVES_CHEMICAL_PROTECTION = ITEMS.register("rubber_gloves_chemical_protection", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> RUBBER_BOOTS_CHEMICAL_PROTECTION = ITEMS.register("rubber_boots_chemical_protection", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> CARGO_PANTS = ITEMS.register("cargo_pants", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> JEANS_BLACK = ITEMS.register("jeans_black", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> PATROL_JACKET = ITEMS.register("patrol_jacket", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> CHEST_RIG = ITEMS.register("chest_rig", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> EXPEDITION_PACK = ITEMS.register("expedition_pack", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> REINFORCED_CARGO_PANTS = ITEMS.register("reinforced_cargo_pants", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> WORK_GLOVES = ITEMS.register("work_gloves", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> DESERT_CAP = ITEMS.register("desert_cap", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> BALACLAVA = ITEMS.register("balaclava", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> CAP = ITEMS.register("cap", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> CAP_BLUE = ITEMS.register("cap_blue", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> CAP_WHITE = ITEMS.register("cap_white", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> CAP_BLACK = ITEMS.register("cap_black", () -> new Item(new Item.Properties().stacksTo(1)));
-    // Creates a creative tab with the id "inventory:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
-        output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+    private static Item gearItem(Item.Properties properties) {
+        return new GearTooltipItem(properties);
+    }
+
+    private static Item.Properties lightGearProperties() {
+        return new Item.Properties().stacksTo(1).durability(296);
+    }
+
+    private static Item.Properties mediumGearProperties() {
+        return new Item.Properties().stacksTo(1).durability(432);
+    }
+
+    private static Item.Properties heavyGearProperties() {
+        return new Item.Properties().stacksTo(1).durability(598);
+    }
+
+    public static final RegistryObject<Item> RUGGED_VEST = ITEMS.register("rugged_vest", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> TACTICAL_VEST = ITEMS.register("tactical_vest", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> TACTICAL_VEST_BLACK = ITEMS.register("tactical_vest_black", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> DDR_BELT = ITEMS.register("ddr_belt", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> VEST_LIFCHIK = ITEMS.register("vest_lifchik", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> VEST_6SH117_DESERT = ITEMS.register("vest_6sh117_desert", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> VEST_6B2_TAN = ITEMS.register("vest_6b2_tan", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> VEST_PLATE_CARRIER_DESERT = ITEMS.register("vest_plate_carrier_desert", () -> gearItem(heavyGearProperties()));
+    public static final RegistryObject<Item> TACTICAL_HELMET_DESERT = ITEMS.register("tactical_helmet_desert", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HELMET_6B47_DESERT_EMR = ITEMS.register("helmet_6b47_desert_emr", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> M40_GASMASK = ITEMS.register("m40_gasmask", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> USA_HAZMAT_CAP = ITEMS.register("usa_hazmat_cap", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> USA_HAZMAT_CHESTPLATE = ITEMS.register("usa_hazmat_chestplate", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> USA_HAZMAT_LEGGINGS = ITEMS.register("usa_hazmat_leggings", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> BLACK_SHOULDER_BAG = ITEMS.register("black_shoulder_bag", () -> gearItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> TRAVEL_BACKPACK = ITEMS.register("travel_backpack", () -> gearItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> SHIRT_RED = ITEMS.register("shirt_red", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> SHIRT_GREEN = ITEMS.register("shirt_green", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> SHIRT_BLUE = ITEMS.register("shirt_blue", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> TACTICAL_GLOVES = ITEMS.register("tactical_gloves", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> TACTICAL_BOOTS = ITEMS.register("tactical_boots", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> SNEAKERS_RED = ITEMS.register("sneakers_red", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> SNEAKERS_GREEN = ITEMS.register("sneakers_green", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> SNEAKERS_BLUE = ITEMS.register("sneakers_blue", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> RUBBER_GLOVES_CHEMICAL_PROTECTION = ITEMS.register("rubber_gloves_chemical_protection", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> RUBBER_BOOTS_CHEMICAL_PROTECTION = ITEMS.register("rubber_boots_chemical_protection", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> CARGO_PANTS = ITEMS.register("cargo_pants", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> JEANS_BLACK = ITEMS.register("jeans_black", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> PATROL_JACKET = ITEMS.register("patrol_jacket", () -> gearItem(mediumGearProperties()));
+
+    public static final RegistryObject<Item> REINFORCED_CARGO_PANTS = ITEMS.register("reinforced_cargo_pants", () -> gearItem(lightGearProperties()));
+
+    public static final RegistryObject<Item> BALACLAVA = ITEMS.register("balaclava", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> CAP = ITEMS.register("cap", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> CAP_BLUE = ITEMS.register("cap_blue", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> CAP_WHITE = ITEMS.register("cap_white", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> CAP_BLACK = ITEMS.register("cap_black", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HAT_BLACK = ITEMS.register("hat_black", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HAT_GRAY = ITEMS.register("hat_gray", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HAT_BLUE = ITEMS.register("hat_blue", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HAT_GREEN = ITEMS.register("hat_green", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HAT_RED = ITEMS.register("hat_red", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> WELDING_MASK = ITEMS.register("welding_mask", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> WELDING_MASK_KILL = ITEMS.register("welding_mask_kill", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HELMET_PASGT_PRESS = ITEMS.register("helmet_pasgt_press", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> BALACLAVA_GREEN = ITEMS.register("balaclava_green", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> BALACLAVA_WHITE = ITEMS.register("balaclava_white", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> LEOPARD_PRESS_VEST = ITEMS.register("leopard_press_vest", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> HOODIE_BLUE = ITEMS.register("hoodie_blue", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> VEST_AND_WHITE_SHIRT = ITEMS.register("vest_and_white_shirt", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> JACKET = ITEMS.register("jacket", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> HOMEMADE_REINFORCED_SHIRT = ITEMS.register("homemade_reinforced_shirt", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> HOMEMADE_REINFORCED_GLOVES = ITEMS.register("homemade_reinforced_gloves", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> BLACK_GLOVES = ITEMS.register("black_gloves", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> BUSINESS_PANTS = ITEMS.register("business_pants", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HOMEMADE_REINFORCED_PANTS = ITEMS.register("homemade_reinforced_pants", () -> gearItem(mediumGearProperties()));
+    public static final RegistryObject<Item> SHOES = ITEMS.register("shoes", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> HOMEMADE_REINFORCED_BOOTS = ITEMS.register("homemade_reinforced_boots", () -> gearItem(lightGearProperties()));
+
+    // Creates a creative tab for all mod items
+    public static final RegistryObject<CreativeModeTab> INVENTORY_TAB = CREATIVE_MODE_TABS.register("inventory_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> BLACK_SHOULDER_BAG.get().getDefaultInstance()).displayItems((parameters, output) -> {
+        output.accept(RUGGED_VEST.get());
+        output.accept(TACTICAL_VEST.get());
+        output.accept(TACTICAL_VEST_BLACK.get());
+        output.accept(DDR_BELT.get());
+        output.accept(VEST_LIFCHIK.get());
+        output.accept(VEST_6SH117_DESERT.get());
+        output.accept(VEST_6B2_TAN.get());
+        output.accept(VEST_PLATE_CARRIER_DESERT.get());
+        output.accept(TACTICAL_HELMET_DESERT.get());
+        output.accept(HELMET_6B47_DESERT_EMR.get());
+        output.accept(M40_GASMASK.get());
+        output.accept(USA_HAZMAT_CAP.get());
+        output.accept(USA_HAZMAT_CHESTPLATE.get());
+        output.accept(USA_HAZMAT_LEGGINGS.get());
+        output.accept(BLACK_SHOULDER_BAG.get());
+        output.accept(TRAVEL_BACKPACK.get());
+        output.accept(SHIRT_RED.get());
+        output.accept(SHIRT_GREEN.get());
+        output.accept(SHIRT_BLUE.get());
+        output.accept(TACTICAL_GLOVES.get());
+        output.accept(RUBBER_GLOVES_CHEMICAL_PROTECTION.get());
+        output.accept(TACTICAL_BOOTS.get());
+        output.accept(RUBBER_BOOTS_CHEMICAL_PROTECTION.get());
+        output.accept(SNEAKERS_RED.get());
+        output.accept(SNEAKERS_GREEN.get());
+        output.accept(SNEAKERS_BLUE.get());
+        output.accept(CARGO_PANTS.get());
+        output.accept(JEANS_BLACK.get());
+        output.accept(PATROL_JACKET.get());
+        output.accept(REINFORCED_CARGO_PANTS.get());
+        output.accept(BALACLAVA.get());
+        output.accept(CAP.get());
+        output.accept(CAP_BLUE.get());
+        output.accept(CAP_WHITE.get());
+        output.accept(CAP_BLACK.get());
+        output.accept(HAT_BLACK.get());
+        output.accept(HAT_GRAY.get());
+        output.accept(HAT_BLUE.get());
+        output.accept(HAT_GREEN.get());
+        output.accept(HAT_RED.get());
+        output.accept(WELDING_MASK.get());
+        output.accept(WELDING_MASK_KILL.get());
+        output.accept(HELMET_PASGT_PRESS.get());
+        output.accept(BALACLAVA_GREEN.get());
+        output.accept(BALACLAVA_WHITE.get());
+        output.accept(LEOPARD_PRESS_VEST.get());
+        output.accept(HOODIE_BLUE.get());
+        output.accept(VEST_AND_WHITE_SHIRT.get());
+        output.accept(JACKET.get());
+        output.accept(HOMEMADE_REINFORCED_SHIRT.get());
+        output.accept(HOMEMADE_REINFORCED_GLOVES.get());
+        output.accept(BLACK_GLOVES.get());
+        output.accept(BUSINESS_PANTS.get());
+        output.accept(HOMEMADE_REINFORCED_PANTS.get());
+        output.accept(SHOES.get());
+        output.accept(HOMEMADE_REINFORCED_BOOTS.get());
     }).build());
 
     // ---- Custom Inventory Menu ----
     // Register the custom inventory menu type
     public static final RegistryObject<MenuType<CustomInventoryMenu>> CUSTOM_INVENTORY_MENU = MENU_TYPES.register("custom_inventory", () -> IForgeMenuType.create(CustomInventoryMenu::new));
+    public static final RegistryObject<MenuType<StorageBrowserMenu>> STORAGE_BROWSER_MENU = MENU_TYPES.register("storage_browser", () -> IForgeMenuType.create(StorageBrowserMenu::new));
 
     @SuppressWarnings("removal")
     public Inventory() {
@@ -144,6 +232,7 @@ public class Inventory {
 
         // Set the static MenuType reference used by CustomInventoryMenu's super() call
         CustomInventoryMenu.TYPE = CUSTOM_INVENTORY_MENU.get();
+        StorageBrowserMenu.TYPE = STORAGE_BROWSER_MENU.get();
 
         // Phase B: register all network packets
         event.enqueueWork(ModNetwork::registerPackets);
@@ -155,51 +244,9 @@ public class Inventory {
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
-    // Add the example block item to the building blocks tab
+    // All mod items are now in the INVENTORY_TAB creative tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
-        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            event.accept(RUGGED_VEST.get());
-            event.accept(TACTICAL_VEST.get());
-            event.accept(TACTICAL_VEST_BLACK.get());
-            event.accept(DDR_BELT.get());
-            event.accept(VEST_LIFCHIK.get());
-            event.accept(VEST_6SH117_DESERT.get());
-            event.accept(VEST_6B2_TAN.get());
-            event.accept(VEST_PLATE_CARRIER_DESERT.get());
-            event.accept(TACTICAL_HELMET_DESERT.get());
-            event.accept(HELMET_6B47_DESERT_EMR.get());
-            event.accept(M40_GASMASK.get());
-            event.accept(USA_HAZMAT_CAP.get());
-            event.accept(USA_HAZMAT_CHESTPLATE.get());
-            event.accept(USA_HAZMAT_LEGGINGS.get());
-            event.accept(BLACK_SHOULDER_BAG.get());
-            event.accept(TRAVEL_BACKPACK.get());
-            event.accept(FIELD_JACKET.get());
-            event.accept(SHIRT_RED.get());
-            event.accept(SHIRT_GREEN.get());
-            event.accept(SHIRT_BLUE.get());
-            event.accept(TACTICAL_GLOVES.get());
-            event.accept(RUBBER_GLOVES_CHEMICAL_PROTECTION.get());
-            event.accept(TACTICAL_BOOTS.get());
-            event.accept(RUBBER_BOOTS_CHEMICAL_PROTECTION.get());
-            event.accept(SNEAKERS_RED.get());
-            event.accept(SNEAKERS_GREEN.get());
-            event.accept(SNEAKERS_BLUE.get());
-            event.accept(CARGO_PANTS.get());
-            event.accept(JEANS_BLACK.get());
-            event.accept(PATROL_JACKET.get());
-            event.accept(CHEST_RIG.get());
-            event.accept(EXPEDITION_PACK.get());
-            event.accept(REINFORCED_CARGO_PANTS.get());
-            event.accept(WORK_GLOVES.get());
-            event.accept(DESERT_CAP.get());
-            event.accept(BALACLAVA.get());
-            event.accept(CAP.get());
-            event.accept(CAP_BLUE.get());
-            event.accept(CAP_WHITE.get());
-            event.accept(CAP_BLACK.get());
-        }
+        // Items are added via the INVENTORY_TAB registration
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -229,6 +276,11 @@ public class Inventory {
                         CUSTOM_INVENTORY_MENU.get(),
                         org.inventory.inventory.client.screen.InventoryScreen::new)
             );
+                event.enqueueWork(() ->
+                    net.minecraft.client.gui.screens.MenuScreens.register(
+                        STORAGE_BROWSER_MENU.get(),
+                        org.inventory.inventory.client.screen.StorageBrowserScreen::new)
+                );
 
         }
 
@@ -246,6 +298,10 @@ public class Inventory {
                     org.inventory.inventory.client.renderer.head.CapModel.LAYER_LOCATION,
                     org.inventory.inventory.client.renderer.head.CapModel::createBodyLayer
             );
+            event.registerLayerDefinition(
+                org.inventory.inventory.client.renderer.head.HatModel.LAYER_LOCATION,
+                org.inventory.inventory.client.renderer.head.HatModel::createBodyLayer
+            );
                 event.registerLayerDefinition(
                     org.inventory.inventory.client.renderer.head.TacticalHelmetDesertModel.LAYER_LOCATION,
                     org.inventory.inventory.client.renderer.head.TacticalHelmetDesertModel::createBodyLayer
@@ -254,10 +310,18 @@ public class Inventory {
                     org.inventory.inventory.client.renderer.head.Helmet6b47DesertEmrModel.LAYER_LOCATION,
                     org.inventory.inventory.client.renderer.head.Helmet6b47DesertEmrModel::createBodyLayer
                 );
+            event.registerLayerDefinition(
+                org.inventory.inventory.client.renderer.head.HelmetPasgtPressModel.LAYER_LOCATION,
+                org.inventory.inventory.client.renderer.head.HelmetPasgtPressModel::createBodyLayer
+            );
                 event.registerLayerDefinition(
                         org.inventory.inventory.client.renderer.face.M40GasmaskModel.LAYER_LOCATION,
                         org.inventory.inventory.client.renderer.face.M40GasmaskModel::createBodyLayer
                 );
+            event.registerLayerDefinition(
+                org.inventory.inventory.client.renderer.head.WeldingMaskModel.LAYER_LOCATION,
+                org.inventory.inventory.client.renderer.head.WeldingMaskModel::createBodyLayer
+            );
                 event.registerLayerDefinition(
                         org.inventory.inventory.client.renderer.head.UsaHazmatCapModel.LAYER_LOCATION,
                         org.inventory.inventory.client.renderer.head.UsaHazmatCapModel::createBodyLayer
@@ -277,6 +341,10 @@ public class Inventory {
                 event.registerLayerDefinition(
                     org.inventory.inventory.client.renderer.vest.VestPlateCarrierDesertModel.LAYER_LOCATION,
                     org.inventory.inventory.client.renderer.vest.VestPlateCarrierDesertModel::createBodyLayer
+                );
+                event.registerLayerDefinition(
+                        org.inventory.inventory.client.renderer.vest.LeopardPressVestModel.LAYER_LOCATION,
+                        org.inventory.inventory.client.renderer.vest.LeopardPressVestModel::createBodyLayer
                 );
                 event.registerLayerDefinition(
                     org.inventory.inventory.client.renderer.vest.DdrBeltModel.LAYER_LOCATION,

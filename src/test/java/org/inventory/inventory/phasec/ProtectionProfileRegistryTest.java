@@ -25,11 +25,11 @@ class ProtectionProfileRegistryTest {
         ResourceLocation itemB = ResourceLocation.parse("inventory:item_b");
 
         ProtectionProfile low = new ProtectionProfile(
-                ResourceLocation.parse("inventory:low"), 1.0, 1.0, "light", List.of(), 5);
+                ResourceLocation.parse("inventory:low"), 1.0, 0.5, 1.0, "light", List.of(), 5);
         ProtectionProfile high = new ProtectionProfile(
-                ResourceLocation.parse("inventory:high"), 3.5, 1.2, "heavy", List.of(), 20);
+                ResourceLocation.parse("inventory:high"), 3.5, 1.5, 1.2, "heavy", List.of(), 20);
         ProtectionProfile bOnly = new ProtectionProfile(
-                ResourceLocation.parse("inventory:b_only"), 7.0, 0.8, "heavy", List.of(), 1);
+                ResourceLocation.parse("inventory:b_only"), 7.0, 2.0, 0.8, "heavy", List.of(), 1);
 
         ProtectionProfileRegistry.replaceSnapshot(Map.of(
                 itemA, List.of(low, high),

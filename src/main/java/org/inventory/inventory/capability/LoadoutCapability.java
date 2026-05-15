@@ -55,6 +55,10 @@ public final class LoadoutCapability {
         PlayerLoadoutProvider provider = new PlayerLoadoutProvider();
         event.addCapability(LOADOUT_KEY, provider);
         event.addListener(provider::invalidate);
+
+        PlayerAmmoItemHandlerProvider ammoProvider = new PlayerAmmoItemHandlerProvider((Player) event.getObject());
+        event.addCapability(ResourceLocation.fromNamespaceAndPath(Inventory.MODID, "player_ammo_handler"), ammoProvider);
+        event.addListener(ammoProvider::invalidate);
     }
 
     /**

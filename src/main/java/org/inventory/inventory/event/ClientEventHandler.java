@@ -6,10 +6,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.inventory.inventory.Inventory;
 import org.inventory.inventory.client.PendingActionTracker;
+import org.inventory.inventory.data.DataDrivenContentLoader;
 import org.inventory.inventory.network.C2SOpenInventoryPacket;
 import org.inventory.inventory.network.ModNetwork;
 import org.slf4j.Logger;
@@ -32,6 +34,7 @@ public final class ClientEventHandler {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final long OPEN_REQUEST_COOLDOWN_MS = 200L;
     private static long lastOpenRequestAtMs = 0L;
+    private static boolean dataLoadedForThisWorld = false;
 
     private ClientEventHandler() {}
 
@@ -45,10 +48,10 @@ public final class ClientEventHandler {
      */
     @SubscribeEvent
     public static void onScreenOpening(ScreenEvent.Opening event) {
-        if (!(event.getScreen() instanceof InventoryScreen)) return;
-
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
+
+        if (!(event.getNewScreen() instanceof InventoryScreen)) return;
 
         // Creative players always use vanilla UI — do NOT intercept
         if (mc.player.isCreative()) {
@@ -74,6 +77,23 @@ public final class ClientEventHandler {
         if (event.getScreen() instanceof org.inventory.inventory.client.screen.InventoryScreen
                 || event.getScreen() instanceof org.inventory.inventory.client.screen.CraftScreen) {
             PendingActionTracker.clear();
+        }
+    }
+
+    @SubscribeEvent
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.level == null || mc.player == null) {
+            dataLoadedForThisWorld = false;
+            return;
+        }
+        
+        // Data is synchronized from server via S2CProfilesSyncPacket and S2CCraftSyncPacket
+        // No need to load from ResourceManager on client — server handles it and sends via network
+        if (!dataLoadedForThisWorld) {
+            LOGGER.info("[ClientEventHandler] Data will be synchronized from server");
+            dataLoadedForThisWorld = true;
         }
     }
 }

@@ -1,0 +1,9 @@
+{
+  "items": ["inventory:homemade_reinforced_shirt"],
+  "armorValue": 3.0,
+  "durabilityModifier": 1.0,
+  "armorToughness": 1.0,
+  "weightClass": "medium",
+  "tags": ["inventory:armor/medium"],
+  "priority": 10
+}

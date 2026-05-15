@@ -5,6 +5,8 @@
     "inventory:rubber_boots_chemical_protection",
     "inventory:sneakers_red",
     "inventory:sneakers_green",
-    "inventory:sneakers_blue"
+    "inventory:sneakers_blue",
+    "inventory:shoes",
+    "inventory:homemade_reinforced_boots"
   ]
 }

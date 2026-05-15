@@ -1,12 +1,14 @@
 {
-  "replace": false,
-  "values": [
-    "inventory:field_jacket",
-    "inventory:patrol_jacket",
-    "inventory:usa_hazmat_chestplate",
-    "inventory:shirt_red",
-    "inventory:shirt_green",
-    "inventory:shirt_blue"
-  ]
+    "replace":  false,
+    "values":  [
+                   "inventory:patrol_jacket",
+                   "inventory:hoodie_blue",
+                   "inventory:vest_and_white_shirt",
+                   "inventory:jacket",
+                   "inventory:homemade_reinforced_shirt",
+                   "inventory:usa_hazmat_chestplate",
+                   "inventory:shirt_red",
+                   "inventory:shirt_green",
+                   "inventory:shirt_blue"
+               ]
 }
-

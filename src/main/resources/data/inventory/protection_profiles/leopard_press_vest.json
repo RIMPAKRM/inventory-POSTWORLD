@@ -1,0 +1,9 @@
+{
+  "items": ["inventory:leopard_press_vest"],
+  "armorValue": 5.0,
+  "durabilityModifier": 1.0,
+  "weightClass": "light",
+  "armorToughness": 1.0,
+  "tags": ["inventory:armor/light"],
+  "priority": 10
+}

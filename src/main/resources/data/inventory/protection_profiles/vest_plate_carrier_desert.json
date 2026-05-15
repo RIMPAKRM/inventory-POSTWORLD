@@ -2,6 +2,7 @@
   "items": ["inventory:vest_plate_carrier_desert"],
   "armorValue": 8.0,
   "durabilityModifier": 1.25,
+  "armorToughness": 4.0,
   "weightClass": "heavy",
   "tags": ["inventory:armor/heavy"],
   "priority": 10

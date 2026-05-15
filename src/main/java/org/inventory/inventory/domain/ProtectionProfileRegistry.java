@@ -28,6 +28,7 @@ public final class ProtectionProfileRegistry {
             sorted.sort(ProtectionProfile.ORDER);
             BY_ITEM.put(e.getKey(), Collections.unmodifiableList(sorted));
         }
+        com.mojang.logging.LogUtils.getLogger().info("[ProtectionProfileRegistry] replaceSnapshot: loaded {} items", snapshot.size());
     }
 
     public static Optional<ProtectionProfile> resolve(ItemStack stack) {
@@ -47,6 +48,10 @@ public final class ProtectionProfileRegistry {
         List<ProtectionProfile> profiles = BY_ITEM.get(itemId);
         if (profiles == null) return List.of();
         return profiles;
+    }
+
+    public static synchronized Set<ResourceLocation> allItems() {
+        return BY_ITEM.keySet();
     }
 
     public static synchronized void clear() {

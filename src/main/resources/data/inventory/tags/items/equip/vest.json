@@ -1,15 +1,14 @@
 {
-  "replace": false,
-  "values": [
-    "inventory:rugged_vest",
-    "inventory:tactical_vest",
-    "inventory:tactical_vest_black",
-    "inventory:ddr_belt",
-    "inventory:vest_lifchik",
-    "inventory:vest_6sh117_desert",
-    "inventory:vest_6b2_tan",
-    "inventory:vest_plate_carrier_desert",
-    "inventory:chest_rig"
-  ]
+    "replace":  false,
+    "values":  [
+                   "inventory:rugged_vest",
+                   "inventory:tactical_vest",
+                   "inventory:tactical_vest_black",
+                   "inventory:ddr_belt",
+                   "inventory:vest_lifchik",
+                   "inventory:vest_6sh117_desert",
+                   "inventory:vest_6b2_tan",
+                   "inventory:vest_plate_carrier_desert",
+                   "inventory:leopard_press_vest"
+               ]
 }
-

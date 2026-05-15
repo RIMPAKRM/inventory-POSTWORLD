@@ -1,9 +1,9 @@
 {
-  "replace": false,
-  "values": [
-    "inventory:tactical_gloves",
-    "inventory:work_gloves",
-    "inventory:rubber_gloves_chemical_protection"
-  ]
+    "replace":  false,
+    "values":  [
+                   "inventory:tactical_gloves",
+                   "inventory:rubber_gloves_chemical_protection",
+                   "inventory:homemade_reinforced_gloves",
+                   "inventory:black_gloves"
+               ]
 }
-

@@ -22,11 +22,7 @@ public abstract class LoadoutAttachmentModel<T extends Entity> extends EntityMod
         copyState.run();
 
         poseStack.pushPose();
-        LoadoutRenderTransforms.applyCrouchOffset(poseStack, player,
-                LoadoutRenderTransforms.DEFAULT_VERTICAL_OFFSET,
-                LoadoutRenderTransforms.DEFAULT_FORWARD_OFFSET);
-        LoadoutRenderTransforms.applyCrouchRotation(poseStack, player,
-                LoadoutRenderTransforms.DEFAULT_CROUCH_ROTATION_X);
+        LoadoutRenderTransforms.applyAttachmentTransform(poseStack, player);
 
         VertexConsumer vc = buffer.getBuffer(RenderType.entityCutoutNoCull(texture));
         this.renderToBuffer(

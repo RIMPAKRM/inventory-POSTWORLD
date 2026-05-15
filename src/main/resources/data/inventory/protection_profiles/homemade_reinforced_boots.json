@@ -1,0 +1,8 @@
+{
+  "items": ["inventory:homemade_reinforced_boots"],
+  "armorValue": 1.0,
+  "durabilityModifier": 1.0,
+  "weightClass": "medium",
+  "tags": ["inventory:armor/medium"],
+  "priority": 10
+}

@@ -2,8 +2,8 @@
   "items": ["inventory:cargo_pants"],
   "armorValue": 2.0,
   "durabilityModifier": 1.0,
-  "weightClass": "light",
-  "tags": ["inventory:armor/light"],
+  "weightClass": "medium",
+  "tags": ["inventory:armor/medium"],
   "priority": 10
 }
 

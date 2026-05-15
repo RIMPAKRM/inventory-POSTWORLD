@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Maps items to their StorageProfile.
@@ -47,6 +48,17 @@ public final class StorageProfileRegistry {
         ResourceLocation key = ForgeRegistries.ITEMS.getKey(stack.getItem());
         if (key == null) return Optional.empty();
         return Optional.ofNullable(BY_ITEM.get(key));
+    }
+
+    /** Look up a StorageProfile for an item id. Returns empty if none registered. */
+    public static Optional<StorageProfile> lookup(ResourceLocation itemId) {
+        if (itemId == null) return Optional.empty();
+        return Optional.ofNullable(BY_ITEM.get(itemId));
+    }
+
+    /** Get all registered item ids. */
+    public static synchronized Set<ResourceLocation> allItems() {
+        return BY_ITEM.keySet();
     }
 
     /** Clear all registered profiles (used in tests or data reload). */

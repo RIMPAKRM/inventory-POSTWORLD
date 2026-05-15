@@ -16,6 +16,8 @@ import org.inventory.inventory.Inventory;
  *   2 – C2SOpenInventoryPacket
  *   3 – S2CLoadoutSyncPacket
  *   4 – S2CActionRejectedPacket
+ *   5 – S2CProfilesSyncPacket
+ *   6 – S2CCraftSyncPacket
  */
 public final class ModNetwork {
 
@@ -62,6 +64,18 @@ public final class ModNetwork {
                 S2CActionRejectedPacket::encode,
                 S2CActionRejectedPacket::decode,
                 S2CActionRejectedPacket::handle);
+
+        CHANNEL.registerMessage(nextId++,
+                S2CProfilesSyncPacket.class,
+                S2CProfilesSyncPacket::encode,
+                S2CProfilesSyncPacket::decode,
+                S2CProfilesSyncPacket::handle);
+
+        CHANNEL.registerMessage(nextId++,
+                S2CCraftSyncPacket.class,
+                S2CCraftSyncPacket::encode,
+                S2CCraftSyncPacket::decode,
+                S2CCraftSyncPacket::handle);
     }
 }
 

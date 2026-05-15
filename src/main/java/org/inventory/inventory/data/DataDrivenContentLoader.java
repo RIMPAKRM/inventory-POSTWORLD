@@ -204,6 +204,12 @@ public final class DataDrivenContentLoader {
                 continue;
             }
 
+            double armorToughness = GsonHelper.getAsDouble(json, "armorToughness", 0d);
+            if (armorToughness < 0d) {
+                issues += issue(ContentErrorCode.INVALID_VALUE, e.getKey(), "armorToughness must be >= 0");
+                continue;
+            }
+
             double durabilityModifier = GsonHelper.getAsDouble(json, "durabilityModifier", 1d);
             if (durabilityModifier <= 0d) {
                 issues += issue(ContentErrorCode.INVALID_VALUE, e.getKey(), "durabilityModifier must be > 0");
@@ -218,7 +224,7 @@ public final class DataDrivenContentLoader {
             }
 
             ProtectionProfile profile = new ProtectionProfile(
-                    profileId, armorValue, durabilityModifier, weightClass, tags, priority);
+                    profileId, armorValue, armorToughness, durabilityModifier, weightClass, tags, priority);
 
             for (ResourceLocation itemId : items) {
                 if (itemResolver.apply(itemId) == null) {
@@ -359,8 +365,13 @@ public final class DataDrivenContentLoader {
 
     private static Map<ResourceLocation, JsonObject> readJsonDirectory(ResourceManager resourceManager, String directory) {
         Map<ResourceLocation, JsonObject> out = new LinkedHashMap<>();
-        Map<ResourceLocation, Resource> resources = resourceManager.listResources(directory, id -> id.getPath().endsWith(".json"));
+        // listResources does NOT accept trailing slash in the path
+        String pathPrefix = directory + "/";
+        Map<ResourceLocation, Resource> resources = resourceManager.listResources(directory, id -> 
+            id.getNamespace().equals("inventory") && id.getPath().startsWith(pathPrefix) && id.getPath().endsWith(".json"));
+        LOGGER.info("[DataLoader] readJsonDirectory({}): found {} resources", directory, resources.size());
         for (Map.Entry<ResourceLocation, Resource> e : resources.entrySet()) {
+            LOGGER.debug("[DataLoader]   resource: {}", e.getKey());
             try (Reader reader = e.getValue().openAsReader()) {
                 JsonObject json = GsonHelper.fromJson(GSON, reader, JsonObject.class);
                 if (json == null) {

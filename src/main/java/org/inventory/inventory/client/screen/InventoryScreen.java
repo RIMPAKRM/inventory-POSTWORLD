@@ -6,11 +6,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.world.damagesource.CombatRules;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.inventory.inventory.capability.PlayerLoadout;
@@ -49,12 +51,19 @@ public class InventoryScreen extends AbstractContainerScreen<CustomInventoryMenu
     private static final int GUI_WIDTH  = 240;
     private static final int GUI_HEIGHT = 230;
 
-    /** Pending-indicator colour (semi-transparent yellow). */
+        private static final int PANEL_FILL = 0xFF1A1D21;
+        private static final int PANEL_FILL_2 = 0xFF232830;
+        private static final int HEADER_FILL = 0xFF34424D;
+        private static final int HEADER_ACCENT = 0xFFB39B62;
+    private static final int STAT_LABEL_COLOUR = 0xC9D4D7;
+    private static final int STAT_VALUE_COLOUR = 0xFCB86C;
+    private static final int SLOT_BG = 0xFF2A2F36;
+    private static final int SLOT_BG_HILITE = 0xFF37404A;
+    private static final float DEFENSE_REFERENCE_DAMAGE = 10.0f;
+
     private static final int PENDING_OVERLAY_COLOUR = 0x44FFFF00;
     /** Rejection-flash colour (semi-transparent red). */
     private static final int REJECT_FLASH_COLOUR    = 0x44FF4444;
-    private static final ResourceLocation VANILLA_INVENTORY_TEXTURE =
-            ResourceLocation.withDefaultNamespace("textures/gui/container/inventory.png");
 
     private int rejectFlashTicks = 0;
     private int cachedDynamicPanelBottom = CustomInventoryMenu.DYNAMIC_Y + 74;
@@ -102,39 +111,29 @@ public class InventoryScreen extends AbstractContainerScreen<CustomInventoryMenu
     protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
 
-        // Base frame keeps the same canvas size as our custom layout.
-        graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, 0xFF1F1F1F);
+        int right = leftPos + imageWidth;
+        int bottom = topPos + imageHeight;
+
+        graphics.fill(leftPos, topPos, right, bottom, PANEL_FILL);
+        graphics.fill(leftPos + 4, topPos + 4, right - 4, bottom - 4, PANEL_FILL_2);
+
+        int headerBottom = topPos + 18;
+        graphics.fill(leftPos + 4, topPos + 4, right - 4, headerBottom, HEADER_FILL);
+        graphics.fill(leftPos + 4, headerBottom - 1, right - 4, headerBottom, HEADER_ACCENT);
 
         // Equipment block.
         int equipLeft = leftPos + CustomInventoryMenu.EQUIPMENT_LEFT_X - 4;
         int equipTop = topPos + CustomInventoryMenu.EQUIPMENT_TOP_Y - 4;
         int equipRight = equipLeft + 44;
         int equipBottom = equipTop + 80;
-        graphics.fill(equipLeft, equipTop, equipRight, equipBottom, 0xCC1D1D1D);
+        graphics.fill(equipLeft, equipTop, equipRight, equipBottom, PANEL_FILL);
 
         // Character preview block.
         int previewLeft = leftPos + 56;
-        int previewTop = topPos + 6;
+        int previewTop = topPos + 18;
         int previewRight = leftPos + 122;
         int previewBottom = topPos + 100;
-        graphics.fill(previewLeft, previewTop, previewRight, previewBottom, 0xCC2B2B2B);
-
-        // Dynamic storage block.
-        int dynLeft = leftPos + CustomInventoryMenu.DYNAMIC_X - 4;
-        int dynTop = topPos + CustomInventoryMenu.DYNAMIC_Y - 4;
-        int dynRight = leftPos + cachedDynamicPanelRight;
-        int dynBottom = topPos + cachedDynamicPanelBottom;
-        graphics.fill(dynLeft, dynTop, dynRight, dynBottom, 0xCC1D1D1D);
-
-        // Hotbar block only (no 3x9 vanilla main grid in this design).
-        int hotbarLeft = leftPos + CustomInventoryMenu.VANILLA_INV_X - 4;
-        int hotbarTop = topPos + CustomInventoryMenu.HOTBAR_Y - 4;
-        int hotbarRight = hotbarLeft + 170;
-        int hotbarBottom = hotbarTop + 26;
-        graphics.fill(hotbarLeft, hotbarTop, hotbarRight, hotbarBottom, 0xCC2B2B2B);
-
-        // Draw custom slot backgrounds from the same vanilla atlas.
-        renderVanillaSlotBackdrops(graphics);
+        graphics.fill(previewLeft, previewTop, previewRight, previewBottom, PANEL_FILL_2);
 
         // Center player render, same interaction style as vanilla.
         if (this.minecraft != null && this.minecraft.player != null) {
@@ -148,6 +147,25 @@ public class InventoryScreen extends AbstractContainerScreen<CustomInventoryMenu
                     this.minecraft.player
             );
         }
+
+        // Stats display under player model
+        renderCharacterStats(graphics);
+
+        // Dynamic storage block.
+        int dynLeft = leftPos + CustomInventoryMenu.DYNAMIC_X - 4;
+        int dynTop = topPos + CustomInventoryMenu.DYNAMIC_Y - 4;
+        int dynRight = leftPos + cachedDynamicPanelRight + 4;
+        int dynBottom = topPos + cachedDynamicPanelBottom;
+        graphics.fill(dynLeft, dynTop, dynRight, dynBottom, PANEL_FILL);
+
+        // Hotbar block only (no 3x9 vanilla main grid in this design).
+        int hotbarLeft = leftPos + CustomInventoryMenu.VANILLA_INV_X - 4;
+        int hotbarTop = topPos + CustomInventoryMenu.HOTBAR_Y - 4;
+        int hotbarRight = hotbarLeft + 170;
+        int hotbarBottom = hotbarTop + 26;
+        graphics.fill(hotbarLeft, hotbarTop, hotbarRight, hotbarBottom, PANEL_FILL_2);
+
+        renderSlotBackdrops(graphics);
 
         // Pending indicator overlay
         if (PendingActionTracker.hasPending()) {
@@ -166,10 +184,10 @@ public class InventoryScreen extends AbstractContainerScreen<CustomInventoryMenu
     @Override
     protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         // Title
-        graphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 0x404040, false);
+        graphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 0xF2E7D0, false);
         // Inventory label
         graphics.drawString(this.font, this.playerInventoryTitle,
-                this.inventoryLabelX, this.inventoryLabelY, 0x404040, false);
+            this.inventoryLabelX, this.inventoryLabelY, 0xC9D4D7, false);
 
     }
 
@@ -181,17 +199,17 @@ public class InventoryScreen extends AbstractContainerScreen<CustomInventoryMenu
         return Component.translatable("slot." + provider.name().toLowerCase());
     }
 
-    private void renderVanillaSlotBackdrops(GuiGraphics graphics) {
+    private void renderSlotBackdrops(GuiGraphics graphics) {
         int limit = this.menu.slots.size();
         for (int i = 0; i < limit; i++) {
             Slot slot = this.menu.slots.get(i);
             if (!slot.isActive()) {
                 continue;
             }
-            graphics.blit(VANILLA_INVENTORY_TEXTURE,
-                    leftPos + slot.x - 1,
-                    topPos + slot.y - 1,
-                    7, 83, 18, 18, 256, 256);
+            int x = leftPos + slot.x - 1;
+            int y = topPos + slot.y - 1;
+            graphics.fill(x, y, x + 19, y + 19, SLOT_BG);
+            graphics.fill(x + 1, y + 1, x + 18, y + 18, SLOT_BG_HILITE);
         }
     }
 
@@ -297,6 +315,46 @@ public class InventoryScreen extends AbstractContainerScreen<CustomInventoryMenu
                     mouseX, mouseY);
         }
     }
-}
 
+    private void renderCharacterStats(GuiGraphics graphics) {
+        if (this.minecraft == null || this.minecraft.player == null) {
+            return;
+        }
+
+        net.minecraft.world.entity.player.Player player = this.minecraft.player;
+        int startX = leftPos + 48;
+        int startY = topPos + 102;
+        int lineHeight = 10;
+
+        // Defense %
+        float armor = (float) player.getArmorValue();
+        float toughness = (float) player.getAttributeValue(Attributes.ARMOR_TOUGHNESS);
+        float damageAfterArmor = CombatRules.getDamageAfterAbsorb(DEFENSE_REFERENCE_DAMAGE, armor, toughness);
+        int enchantProtection = EnchantmentHelper.getDamageProtection(player.getArmorSlots(), player.damageSources().generic());
+        float damageAfterEnchant = damageAfterArmor * (1.0f - Math.min(20.0f, enchantProtection) / 25.0f);
+        int defensePercent = Math.round((1.0f - (damageAfterEnchant / DEFENSE_REFERENCE_DAMAGE)) * 100f);
+
+        graphics.drawString(this.font, "Защита: ", startX, startY, STAT_LABEL_COLOUR, false);
+        graphics.drawString(this.font, defensePercent + "%", startX + 50, startY, STAT_VALUE_COLOUR, false);
+
+
+        // Health %
+        float health = player.getHealth();
+        float maxHealth = player.getMaxHealth();
+        int healthPercent = Math.round((health / maxHealth) * 100f);
+        graphics.drawString(this.font, "Здоровье: ", startX, startY + lineHeight, STAT_LABEL_COLOUR, false);
+        graphics.drawString(this.font, healthPercent + "%", startX + 50, startY + lineHeight, STAT_VALUE_COLOUR, false);
+
+        // Hunger %
+        int foodLevel = player.getFoodData().getFoodLevel();
+        int maxFood = 20;
+        int hungerPercent = Math.round((foodLevel / (float) maxFood) * 100f);
+        graphics.drawString(this.font, "Голод: ", startX, startY + lineHeight * 2, STAT_LABEL_COLOUR, false);
+        graphics.drawString(this.font, hungerPercent + "%", startX + 50, startY + lineHeight * 2, STAT_VALUE_COLOUR, false);
+
+        // Radiation (placeholder for future)
+        graphics.drawString(this.font, "Радиация: ", startX, startY + lineHeight * 3, STAT_LABEL_COLOUR, false);
+        graphics.drawString(this.font, "0%", startX + 50, startY + lineHeight * 3, STAT_VALUE_COLOUR, false);
+    }
+}
 

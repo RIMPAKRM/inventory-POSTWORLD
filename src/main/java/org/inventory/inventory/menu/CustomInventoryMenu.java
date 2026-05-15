@@ -54,10 +54,10 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
 
     // GUI layout anchors (must match InventoryScreen visual layout).
     public static final int EQUIPMENT_LEFT_X = 8;
-    public static final int EQUIPMENT_TOP_Y = 18;
+    public static final int EQUIPMENT_TOP_Y = 26;
     public static final int EQUIPMENT_COLS = 2;
     public static final int DYNAMIC_X = 126;
-    public static final int DYNAMIC_Y = 18;
+    public static final int DYNAMIC_Y = 26;
     public static final int DYNAMIC_COLS = 4;
     public static final int VANILLA_INV_X = 8;
     public static final int HOTBAR_Y = 202;
@@ -147,8 +147,8 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
         Map<EquipmentSlotType, int[]> result = new EnumMap<>(EquipmentSlotType.class);
         result.put(EquipmentSlotType.CHEST, new int[] {DYNAMIC_X, DYNAMIC_Y});
         result.put(EquipmentSlotType.BACKPACK, new int[] {DYNAMIC_X + 36, DYNAMIC_Y});
-        result.put(EquipmentSlotType.VEST, new int[] {DYNAMIC_X, DYNAMIC_Y + 62});
-        result.put(EquipmentSlotType.LEGS, new int[] {DYNAMIC_X + 18, DYNAMIC_Y + 62});
+        result.put(EquipmentSlotType.VEST, new int[] {DYNAMIC_X, DYNAMIC_Y + 54});
+        result.put(EquipmentSlotType.LEGS, new int[] {DYNAMIC_X + 18, DYNAMIC_Y + 54});
         return result;
     }
 

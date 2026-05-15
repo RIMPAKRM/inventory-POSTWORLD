@@ -1,0 +1,10 @@
+
+{
+	"items": ["inventory:tactical_helmet_desert"],
+	"armorValue": 2.0,
+	"armorToughness": 1.0,
+	"durabilityModifier": 1.0,
+	"weightClass": "light",
+	"tags": ["inventory:armor/light"],
+	"priority": 10
+}

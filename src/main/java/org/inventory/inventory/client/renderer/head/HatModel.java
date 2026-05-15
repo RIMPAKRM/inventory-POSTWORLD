@@ -1,0 +1,64 @@
+package org.inventory.inventory.client.renderer.head;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import org.inventory.inventory.Inventory;
+import org.inventory.inventory.client.renderer.LoadoutAttachmentModel;
+
+public class HatModel<T extends Entity> extends LoadoutAttachmentModel<T> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Inventory.MODID, "black_hat_1"), "main");
+
+    public final ModelPart Waist;
+    public final ModelPart Head;
+
+    public HatModel(ModelPart root) {
+        this.Waist = root.getChild("Waist");
+        this.Head = this.Waist.getChild("Head");
+    }
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
+
+        PartDefinition Waist = partdefinition.addOrReplaceChild("Waist", CubeListBuilder.create(), PartPose.offset(0.0F, 12.0F, 0.0F));
+        Waist.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.5F, -7.5F, -4.5F, 9.0F, 2.0F, 9.0F, new CubeDeformation(0.0F))
+            .texOffs(0, 11).addBox(-4.5F, -9.0F, -4.5F, 9.0F, 2.0F, 9.0F, new CubeDeformation(-0.5F))
+            .texOffs(0, 22).addBox(-4.5F, -5.5F, -0.5F, 9.0F, 1.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -12.0F, 0.0F));
+
+        return LayerDefinition.create(meshdefinition, 64, 64);
+    }
+
+    @Override
+    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    }
+
+    @Override
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        this.Waist.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    }
+
+    public void renderOnPlayer(PoseStack poseStack,
+                               MultiBufferSource buffer,
+                               int packedLight,
+                               AbstractClientPlayer player,
+                               ModelPart bodyPart,
+                               ModelPart headPart,
+                               ResourceLocation texture) {
+        renderAttachment(poseStack, buffer, packedLight, player, texture, () -> {
+            copyFrom(this.Waist, bodyPart);
+            copyFrom(this.Head, headPart);
+        });
+    }
+}

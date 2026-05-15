@@ -32,4 +32,13 @@ public final class LoadoutRenderTransforms {
             poseStack.mulPose(com.mojang.math.Axis.XP.rotation(rotationX));
         }
     }
+
+    public static void applyAttachmentTransform(PoseStack poseStack,
+                                                AbstractClientPlayer player) {
+        applyCrouchOffset(poseStack, player,
+                DEFAULT_VERTICAL_OFFSET,
+                DEFAULT_FORWARD_OFFSET);
+        applyCrouchRotation(poseStack, player,
+                DEFAULT_CROUCH_ROTATION_X);
+    }
 }

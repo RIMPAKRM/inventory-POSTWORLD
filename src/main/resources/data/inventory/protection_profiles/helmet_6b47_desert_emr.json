@@ -1,8 +1,9 @@
 {
 	"items": ["inventory:helmet_6b47_desert_emr"],
-	"armorValue": 2.0,
+	"armorValue": 3.0,
+	"armorToughness": 1.0,
 	"durabilityModifier": 1.0,
-	"weightClass": "light",
-	"tags": ["inventory:armor/light"],
+	"weightClass": "medium",
+	"tags": ["inventory:armor/medium"],
 	"priority": 10
 }

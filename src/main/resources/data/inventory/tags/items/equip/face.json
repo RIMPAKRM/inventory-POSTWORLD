@@ -2,7 +2,9 @@
   "replace": false,
   "values": [
     "inventory:m40_gasmask",
-    "inventory:balaclava"
+    "inventory:balaclava",
+    "inventory:balaclava_green",
+    "inventory:balaclava_white"
   ]
 }
 

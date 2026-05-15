@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "inventory:item/desert_cap_t"
-  }
-}

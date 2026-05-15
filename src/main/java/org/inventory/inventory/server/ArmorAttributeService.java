@@ -56,8 +56,9 @@ public final class ArmorAttributeService {
             var profileOpt = ProtectionProfileRegistry.resolve(equipped);
             if (profileOpt.isPresent()) {
                 totalArmor += profileOpt.get().getArmorValue();
-                LOGGER.debug("[ArmorService] {} +{} armor from ProtectionProfile slot={}",
-                        equipped.getItem().getDescriptionId(), profileOpt.get().getArmorValue(), slotType);
+                totalToughness += profileOpt.get().getArmorToughness();
+                LOGGER.debug("[ArmorService] {} +{} armor +{} toughness from ProtectionProfile slot={}",
+                    equipped.getItem().getDescriptionId(), profileOpt.get().getArmorValue(), profileOpt.get().getArmorToughness(), slotType);
                 continue;
             }
 
