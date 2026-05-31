@@ -184,7 +184,7 @@ public final class CraftSaga {
         // Count only in vanilla hotbar (0..8). Main grid is disabled in this mod.
         for (int i = VANILLA_HOTBAR_START; i <= VANILLA_HOTBAR_END; i++) {
             ItemStack slot = ctx.player.getInventory().getItem(i);
-            if (!slot.isEmpty() && slot.is(ingredient.item())) {
+            if (ingredient.matches(slot)) {
                 total += slot.getCount();
             }
         }
@@ -193,7 +193,7 @@ public final class CraftSaga {
             for (int i = 0; i < loadout.getDynamicSlotCount(); i++) {
                 if (!loadout.isDynamicSlotActive(i)) continue;
                 ItemStack slot = loadout.getDynamicSlot(i);
-                if (!slot.isEmpty() && slot.is(ingredient.item())) {
+                if (ingredient.matches(slot)) {
                     total += slot.getCount();
                 }
             }
@@ -212,7 +212,7 @@ public final class CraftSaga {
         // Remove from vanilla hotbar first
         for (int i = VANILLA_HOTBAR_START; i <= VANILLA_HOTBAR_END && remaining > 0; i++) {
             ItemStack slot = ctx.player.getInventory().getItem(i);
-            if (!slot.isEmpty() && slot.is(ingredient.item())) {
+            if (ingredient.matches(slot)) {
                 int take = Math.min(remaining, slot.getCount());
                 removed.add(slot.copyWithCount(take));
                 slot.shrink(take);
@@ -225,7 +225,7 @@ public final class CraftSaga {
             for (int i = 0; i < loadout.getDynamicSlotCount() && remaining > 0; i++) {
                 if (!loadout.isDynamicSlotActive(i)) continue;
                 ItemStack slot = loadout.getDynamicSlot(i);
-                if (!slot.isEmpty() && slot.is(ingredient.item())) {
+                if (ingredient.matches(slot)) {
                     int take = Math.min(remaining, slot.getCount());
                     removed.add(slot.copyWithCount(take));
                     ItemStack updated = slot.copy();

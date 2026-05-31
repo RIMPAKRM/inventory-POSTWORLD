@@ -1,0 +1,9 @@
+{
+  "category": "inventory:buildings",
+  "ingredients": [
+    { "item": "minecraft:oak_planks", "count": 16 },
+    { "item": "minecraft:iron_ingot", "count": 5 },
+    { "item": "survival_instinct:nail", "count": 20 }
+  ],
+  "result": { "item": "constructions:auth_cabinet_item", "count": 1 }
+}

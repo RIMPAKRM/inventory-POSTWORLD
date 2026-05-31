@@ -251,10 +251,9 @@ public class CraftScreen extends Screen {
         graphics.drawString(this.font, INGREDIENTS_LABEL, detailX, detailY, 0xD8D8D8, false);
         detailY += 12;
 
-        Map<Item, Integer> counts = countAvailableItems();
         for (var ingredient : selectedCard.getIngredients()) {
             ItemStack ingredientStack = ingredient.item().getDefaultInstance();
-            int have = counts.getOrDefault(ingredient.item(), 0);
+            int have = countMatchingItems(ingredient);
             boolean enough = have >= ingredient.count();
 
             graphics.renderItem(ingredientStack, detailX + 2, detailY - 3);
@@ -298,39 +297,39 @@ public class CraftScreen extends Screen {
 
     private boolean canAfford(CraftCard card) {
         if (card == null) return false;
-        Map<Item, Integer> itemCounts = countAvailableItems();
-
         for (var ingredient : card.getIngredients()) {
-            int have = itemCounts.getOrDefault(ingredient.item(), 0);
+            int have = countMatchingItems(ingredient);
             if (have < ingredient.count()) return false;
         }
         return true;
     }
 
-    private Map<Item, Integer> countAvailableItems() {
+    private int countMatchingItems(org.inventory.inventory.domain.CraftIngredient ingredient) {
         Minecraft mc = Minecraft.getInstance();
-        Map<Item, Integer> itemCounts = new HashMap<>();
         if (mc.player == null) {
-            return itemCounts;
+            return 0;
         }
 
         IPlayerLoadout loadout = mc.player.getCapability(LoadoutCapability.PLAYER_LOADOUT).orElse(null);
+        int total = 0;
 
         for (int i = 0; i <= 8; i++) {
             ItemStack stack = mc.player.getInventory().getItem(i);
-            if (stack.isEmpty()) continue;
-            itemCounts.merge(stack.getItem(), stack.getCount(), Integer::sum);
+            if (ingredient.matches(stack)) {
+                total += stack.getCount();
+            }
         }
 
         if (loadout != null) {
             for (int i = 0; i < loadout.getDynamicSlotCount(); i++) {
                 if (!loadout.isDynamicSlotActive(i)) continue;
                 ItemStack stack = loadout.getDynamicSlot(i);
-                if (stack.isEmpty()) continue;
-                itemCounts.merge(stack.getItem(), stack.getCount(), Integer::sum);
+                if (ingredient.matches(stack)) {
+                    total += stack.getCount();
+                }
             }
         }
-        return itemCounts;
+        return total;
     }
 
     @Override

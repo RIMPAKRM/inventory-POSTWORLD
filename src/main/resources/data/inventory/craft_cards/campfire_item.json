@@ -1,0 +1,7 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:stick", "count": 8 }
+  ],
+  "result": { "item": "constructions:campfire_item", "count": 1 }
+}

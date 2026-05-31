@@ -64,6 +64,10 @@ public class S2CCraftSyncPacket {
                 // Write ingredient as ItemStack (item + count)
                 ItemStack ingStack = new ItemStack(ing.item(), ing.count());
                 buf.writeItem(ingStack);
+                buf.writeBoolean(ing.tag() != null);
+                if (ing.tag() != null) {
+                    buf.writeResourceLocation(ing.tag());
+                }
             }
         }
     }
@@ -91,8 +95,12 @@ public class S2CCraftSyncPacket {
             int ingredientCount = buf.readInt();
             for (int j = 0; j < ingredientCount; j++) {
                 ItemStack ingStack = buf.readItem();
+                ResourceLocation tag = null;
+                if (buf.readBoolean()) {
+                    tag = buf.readResourceLocation();
+                }
                 if (!ingStack.isEmpty()) {
-                    ingredients.add(new CraftIngredient(ingStack.getItem(), ingStack.getCount()));
+                    ingredients.add(new CraftIngredient(ingStack.getItem(), ingStack.getCount(), tag));
                 }
             }
             

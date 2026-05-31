@@ -1,0 +1,9 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:gunpowder", "count": 6 },
+    { "item": "minecraft:paper", "count": 1 }, 
+    { "item": "survival_instinct:empty_can", "count": 1}
+  ],
+  "result": { "item": "constructions:weak_explosive", "count": 1 }
+}

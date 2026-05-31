@@ -1,0 +1,9 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "constructions:weak_explosive", "count": 2 },
+    { "item": "minecraft:iron_ingot", "count": 1 },
+    { "item": "survival_instinct:electronic_scrap", "count": 2 }
+  ],
+  "result": { "item": "constructions:medium_explosive", "count": 1 }
+}

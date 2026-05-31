@@ -1,8 +1,8 @@
 {
   "category": "inventory:homemade",
   "ingredients": [
-    { "item": "survival_instinct:cloth", "count": 5 },
-    { "item": "minecraft:string", "count": 3 }
+    { "item": "survival_instinct:cloth", "count": 3 },
+    { "item": "minecraft:string", "count": 2 }
   ],
   "result": { "item": "inventory:homemade_reinforced_pants", "count": 1 }
 }

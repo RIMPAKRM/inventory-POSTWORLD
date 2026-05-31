@@ -31,6 +31,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.inventory.inventory.capability.LoadoutCapability;
 import org.inventory.inventory.data.DataDrivenContentLoader;
+import org.inventory.inventory.event.HealthRegenHandler;
 import org.inventory.inventory.menu.CustomInventoryMenu;
 import org.inventory.inventory.menu.StorageBrowserMenu;
 import org.inventory.inventory.item.GearTooltipItem;
@@ -215,6 +216,8 @@ public class Inventory {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        // Register health regen handler to slow natural healing
+        MinecraftForge.EVENT_BUS.register(new HealthRegenHandler());
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

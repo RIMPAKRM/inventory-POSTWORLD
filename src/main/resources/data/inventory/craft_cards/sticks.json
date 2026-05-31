@@ -1,0 +1,7 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:oak_log", "count": 1 }
+  ],
+  "result": { "item": "minecraft:stick", "count": 8 }
+}

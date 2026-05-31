@@ -1,0 +1,7 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "minecraft:iron_nugget", "count": 9 }
+  ],
+  "result": { "item": "minecraft:iron_ingot", "count": 1 }
+}

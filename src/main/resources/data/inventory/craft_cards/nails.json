@@ -1,0 +1,7 @@
+{
+  "category": "inventory:survival",
+  "ingredients": [
+    { "item": "survival_instinct:nails_box", "count": 1 }
+  ],
+  "result": { "item": "survival_instinct:nail", "count": 20 }
+}

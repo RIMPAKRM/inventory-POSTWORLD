@@ -1,0 +1,8 @@
+{
+  "category": "inventory:buildings",
+  "ingredients": [
+    { "item": "minecraft:stick", "count": 7 },
+    { "item": "survival_instinct:nail", "count": 5 }
+  ],
+  "result": { "item": "constructions:floor_ladder_no_support_item", "count": 1 }
+}

@@ -289,12 +289,17 @@ public final class DataDrivenContentLoader {
                 issue(ContentErrorCode.UNKNOWN_ITEM, fileKey, itemId.toString());
                 return null;
             }
+            ResourceLocation tag = parseIdField(ingredientJson, "tag");
+            if (ingredientJson.has("tag") && tag == null) {
+                issue(ContentErrorCode.INVALID_ID, fileKey, "ingredient.tag");
+                return null;
+            }
             int count = GsonHelper.getAsInt(ingredientJson, "count", 0);
             if (count <= 0) {
                 issue(ContentErrorCode.INVALID_VALUE, fileKey, "ingredient.count must be > 0");
                 return null;
             }
-            result.add(new CraftIngredient(item, count));
+            result.add(new CraftIngredient(item, count, tag));
         }
         return result;
     }

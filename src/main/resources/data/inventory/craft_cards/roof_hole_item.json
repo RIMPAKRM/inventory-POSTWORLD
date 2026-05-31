@@ -1,0 +1,8 @@
+{
+  "category": "inventory:buildings",
+  "ingredients": [
+    { "item": "minecraft:oak_planks", "count": 12 },
+    { "item": "survival_instinct:nail", "count": 15 }
+  ],
+  "result": { "item": "constructions:roof_hole_item", "count": 1 }
+}
