@@ -1,7 +1,7 @@
 {
   "category": "inventory:buildings",
   "ingredients": [
-    { "item": "minecraft:iron_nugget", "count": 6 }
+    { "item": "minecraft:iron_nugget", "count": 5 }
   ],
   "result": { "item": "constructions:window_grille_item", "count": 1 }
 }
