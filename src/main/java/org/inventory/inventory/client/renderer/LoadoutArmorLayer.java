@@ -412,6 +412,7 @@ public final class LoadoutArmorLayer extends RenderLayer<AbstractClientPlayer, P
         if ("homemade_reinforced_boots".equals(itemName)) return firstExisting(customEntity("homemade_reinforced_boots"));
         if ("rubber_boots_chemical_protection".equals(itemName)) return firstExisting(customEntity("rubber_boots_chemical_protection"));
         if ("homemade_reinforced_pants".equals(itemName)) return firstExisting(customEntity("homemade_reinforced_pants"));
+        if ("patrol_jacket_emr".equals(itemName)) return firstExisting(customEntity("patrol_jacket_emr"));
 
         return Optional.of(vanillaFallback(slotType, itemName));
     }

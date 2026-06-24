@@ -133,6 +133,7 @@ public class Inventory {
     public static final RegistryObject<Item> HOMEMADE_REINFORCED_PANTS = ITEMS.register("homemade_reinforced_pants", () -> gearItem(mediumGearProperties()));
     public static final RegistryObject<Item> SHOES = ITEMS.register("shoes", () -> gearItem(lightGearProperties()));
     public static final RegistryObject<Item> HOMEMADE_REINFORCED_BOOTS = ITEMS.register("homemade_reinforced_boots", () -> gearItem(lightGearProperties()));
+    public static final RegistryObject<Item> PATROL_JACKET_EMR = ITEMS.register("patrol_jacket_emr", () -> gearItem(mediumGearProperties()));
 
     // Creates a creative tab for all mod items
     public static final RegistryObject<CreativeModeTab> INVENTORY_TAB = CREATIVE_MODE_TABS.register("inventory_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> BLACK_SHOULDER_BAG.get().getDefaultInstance()).displayItems((parameters, output) -> {
@@ -192,6 +193,7 @@ public class Inventory {
         output.accept(HOMEMADE_REINFORCED_PANTS.get());
         output.accept(SHOES.get());
         output.accept(HOMEMADE_REINFORCED_BOOTS.get());
+        output.accept(PATROL_JACKET_EMR.get());
     }).build());
 
     // ---- Custom Inventory Menu ----
